@@ -55,4 +55,7 @@ to surround any html code with an element:
   - `offset` moves our element n/12 of available width to right from where it was originally supposed to be. reaed offset as move to right n columns out of 12 columns
 
   **Text Formatting**
-  - 
+  - text size `display-n` where n goes from 1 to 6 is used to have larger font sizes, with 1 being largest, 6 is small yet still big
+  - alignment: `text-start`, `text-end`
+
+  
