@@ -29,7 +29,7 @@
 
 **Grid System**
 - allows alignment horizontally at regular intervals: design principle that a regularity in alignment is visually pleasing
-- In bootstrap: divide width into 12 columns
+- In bootstrap: divide width into 12 columns because it is divisible by 2,3,4,6
 - container work like col classes and have padding in them, but containers take the whole space available, so containers are like `col-12`
 - row classes remove padding: do not put rows inside rows directly, or col in col. rows should be nested in `container` or `col-` classes
 
@@ -54,8 +54,43 @@ to surround any html code with an element:
   - `col-n` for all widths use n/12 available width
   - `offset` moves our element n/12 of available width to right from where it was originally supposed to be. reaed offset as move to right n columns out of 12 columns
 
-  **Text Formatting**
+**Text Formatting**
   - text size `display-n` where n goes from 1 to 6 is used to have larger font sizes, with 1 being largest, 6 is small yet still big
-  - alignment: `text-start`, `text-end`
+  - alignment: `text-start`, `text-end`, `text-center`
+  - colour for text: `text-primary`, `text-danger`
+  - transformation: `text-capitalize` (first letter of every word uppercased), `text-uppercase`, `text-lowercase`
+  - table: need to be added in table tag
+    - `table`: base class always needed
+    - `table-bordered`: all cells have borders
+    - `table-sm`: less padding in cells
+    - `table-striped`: alternate background colour or grey and white
+    - `table-hover`: background colour of grey when hoverying on a row
+    - `table-responsive`: horizontal scrollbar if any word inside the cell is too long; instead of overflowing
 
-  
+**Image Classes**
+- `rounded` => corners, `rounded-circle`, `img-thumbnail`, `img-fluid`
+
+**Card**
+- simply rectangles in the UI
+- can be formatted very flexibly: background colour, text colour, header, footer, etc.
+- by default, no padding in cards, rounded corners automatic
+- Generally, to cadd padding => `card-body` inside the card div. there is also `card-header` and `card-footer`
+- `.card-img-overlay` used on a div that has CONTENTS of the card that will be overlaid on the img; it is not done on the img tag => allows overlap of content over the img => `position: absolute` etc. used
+- `.card-title` adds margin at bottom
+
+**Form Formatting**
+- input, textarea, select => `form-control` class => takes 100% of the space available and all other elements are above or below it; adds padding, shadows etc.
+- checkboxes and radio button inputs SHOULD NOT USE `form-control` => use `form-check-input`, `form-check-label`, `form-check` on the div that groups the label and the input together
+- By default each check/radio group is in its own line
+- For inline check/radios, add `form-check-inline` to surrounding div
+
+**Button**
+- `btn` class always needed
+- `btn-<colorName>`, `btn-<sizeQualifier2characters>`, `btn-link` (button looks like link).
+
+**Badges**
+- rectangles with formatted text in them
+- can use `bg-primary`, `bg-danger`, etc. for coloured backgorund.
+
+## Topic: JavaScript Basics
+
