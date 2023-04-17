@@ -4,3 +4,8 @@ html, body{
     color:white;
     background-repeat: no-repeat;
 }
+
+.header{
+    background-color: aliceblue;
+    color: black;
+}
