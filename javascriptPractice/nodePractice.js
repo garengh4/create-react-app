@@ -13,9 +13,27 @@ let arrCopy = [...nameArr]
 console.log(arrCopy)
 let arrCopy2 = ["mango", ...nameArr, "cheese"]
 console.log(arrCopy2)
-// ---------------------------------------------------------------------------------------------------------
-
-const fruits = ["Apple", "Mango", "Cherry"];
-fruits.forEach((item, index, array) => {
-    console.log(item, index);
+// ----------------------------- promise ----------------------------------------------------------------
+let myPromise = new Promise((resolve, reject) => {
+    let myTimeout = setTimeout(() => {
+        resolve("success timeout");
+    }, 1000);
+    let errTimeout = setTimeout(() => {
+        reject("error timeout");
+    }, 2000);
 });
+myPromise
+    .then(value => console.log(value))
+    .catch(err => console.log(err));
+// ----------------------------- axios ----------------------------------------------------------------
+let axios = require("axios")
+
+// run json-server --watch empdb.json in terminal
+axios.get("http://localhost:3000/employees/3")
+    .then(resp => {
+        console.log("-----------------------------------------------")
+        console.log(resp.data)
+        console.log("-----------------------------------------------")
+    }).catch(err => { 
+        console.log(err)
+    })
