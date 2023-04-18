@@ -132,6 +132,21 @@ add stuff here
 **JavaScript Rules and Syntax**
 - `let` or `const` is used to create variables
 - arrays are dynamic like ArrayLists are in java
+- Arrow function in JS looks like labmda in Java
+- arrow is equals followed by greater than symbols
+- no types of specified in JS
+
+**Promises and Async Operations**
+- JS is a single threaded langrage => never allowed to create separate threads and wait for things
+- If any operation involves any sort of delays/waiting => those are done by JS "job handler" and the only thing our code can do: 
+  - orovide a callback function to run when the delays/waiting is completed => async programming
+- All operations that may complete at unspecified time later => we need to provide callback functions that will run when those tasks are completed
+- JS can provide args to the callback function as well => typically a value that is resolved after waiting operation like calling an API or connecting to DB
+- Promises are a way to do this async programming in a manageable way => easy to understand and manage
+  - promise contain config info on what will happen if `thatObject.then()` is executed. typically a value is returned after some delay. Can do chaining operations.
+  - code structure: 
+  `somePromise.then(value => {do sth with valuue returned by promise after whatever time}).catch(error => {do sth with error object returned by the promise})`
+
 
 ## Topic: React
 
@@ -141,3 +156,6 @@ add stuff here
 - `npm i -g create-react-app`
 - inside .....
 
+- focus on immutability => will be copying arrays and objects a lot using spread operator
+- focus on separation of "pure functions" and "side effects"
+- `useEffect` hook in react is explicitly named as to be using "side effects"
