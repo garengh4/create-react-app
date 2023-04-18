@@ -118,10 +118,26 @@ When JS instance starts running in the browser window, there are global vars ava
 Frameworks like React, Angular, etc. use JS to efficiently manage views in our frontend. The browser loads the page only once in the beginning, then all the view changes that happen are through JS => Single Page Application (SPA). Browsers do fetch http requestts but do not render directly.
 
 Node.js is the JS interpreter that was made available for OS like Mac, Windows, Linux, etc.
-- witth node.js we were able tot run JS code outside the browsers
+- with node.js we were able to run JS code outside the browsers
 - node.js => JS interpreter/runtime
 - dynamically typed language => types are checked at runtime; there is no compile time since node.js can directly interpret (run) the code.
 - types of vars can change at runtime
 - our JS code does not need to declare types like Java => type can kee changing while the code runs.
 - Run JS code using node.js in the terminal => `node filename.js`
 - Angular and React projects: we write code on our compter, but the app actually runs in the browser through `script` tag in some HTML file. The apps do not execute on our computers. 
+- We need to pack our JS code into a JS file bundle and include it in a `script` tag somewhere.
+
+add stuff here
+
+**JavaScript Rules and Syntax**
+- `let` or `const` is used to create variables
+- arrays are dynamic like ArrayLists are in java
+
+## Topic: React
+
+add stuff here
+
+**Create React Apps**
+- `npm i -g create-react-app`
+- inside .....
+
