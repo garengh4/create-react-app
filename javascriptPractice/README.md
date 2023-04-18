@@ -4,6 +4,5 @@ this practice-folder simulates building app from scratch:
 
 
 set environment variable via .bashrc
-`alias create-react-app=~/AppData/Roaming/npm/create-react-app.cmd `
-
-`alias json-server=~/AppData/Roaming/npm/json-server.cmd`
+- `alias create-react-app=~/AppData/Roaming/npm/create-react-app.cmd `
+- `alias json-server=~/AppData/Roaming/npm/json-server.cmd`
