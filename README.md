@@ -92,5 +92,19 @@ to surround any html code with an element:
 - rectangles with formatted text in them
 - can use `bg-primary`, `bg-danger`, etc. for coloured backgorund.
 
-## Topic: JavaScript Basics
+## Topic: JavaScript Concepts
 
+JS originally only ran in browsers
+- Everytime an html page was rendered in a window, the window has an instance of JS running; this executing JS instance could be asked to manipulate tthte DOM. DOM is an OP representation of the view that is rendered by the browser.
+- DOM has element tree => "inspect" any browser window
+- Every html element is like an object and each has properties/fields/instanceVars like "style", "id", "src", "rowspan".
+- DOM tree => elements inside elemtns nested to whatever level.
+
+JS is able to manipulate the DOM => changing the view displayed in the window
+- add elements, remove elements, modify elements, change properties of elements
+
+JS implements "interactivity" with the user or with timers/timeout => events and event listeners
+- Events are happenings such as clicking/hovering/typing/long press a button/focusOn (clicking into)/drag.
+- Event listeners => functions that have code that runs when a specific thing happen
+
+Browsers are mandated to ALLOW event listeners for events.
