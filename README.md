@@ -108,3 +108,12 @@ JS implements "interactivity" with the user or with timers/timeout => events and
 - Event listeners => functions that have code that runs when a specific thing happen
 
 Browsers are mandated to ALLOW event listeners for events.
+
+`script` tag in html is used to include JS code to run wherever in the HTML it is found.
+
+When JS instance starts running in the browser window, there are global vars available:
+- `window` => browser window object
+- `document` => entire html document object
+
+Frameworks like React, Angular, etc. use HJS to efficiently manage views in our frontend. The browser loads the page only once in the beginning, then all the view changes that happen are through JS => Single Page Application (SPA). Browsers do fetch http requestts but do not render directly.
+
