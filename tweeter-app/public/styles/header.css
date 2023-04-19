@@ -1,0 +1,14 @@
+.aligner {
+    background-color: #e8d487;
+    background-image: url("../images/asfalt-light.png");
+    height: 520px;
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.aligneritem {
+    max-width: 50%;
+}

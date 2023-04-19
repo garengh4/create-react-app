@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- The early days of JS: runtime, browser instead of OS -->
+    <h2>title</h2>
+    <script>
+        function addBgColor(event) {
+            event.target.style.backgroundColor = "pink";
+        }
+
+        let arrayOfh2 = document.getElementsByTagName('h2');         // <h2></h2>
+        let inputElement = document.createElement("input");
+        arrayOfh2[0].insertAdjacentElement("afterend",inputElement);
+
+        arrayOfh2[0].addEventListener('mouseover', addBgColor, false);
+    </script>
+</body>
+</html>

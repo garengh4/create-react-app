@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Flourish and Blotts</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/bootstrap.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <!-- ----------------------------------------header---------------------------------------- -->
+    <div class="row mt-3 bg-light text-dark">
+      <div class="col-12">
+        <h2 class="text-center display-3 mt-5">Flourish and Blotts</h1>
+          <p class="fs-4">
+            Lorem ipsum dolor <span class="text-uppercase">sit amet consectetur</span> adipisicing elit. At quo a in
+            tempore quaerat cum accusamus <span class="text-warning">laborummaxime </span>ea temporibus est ut eos,
+            quasi veniam quae odit! Eveniet, <span class="text-success">nequevoluptatum</span>! Lorem ipsum dolor sit
+            amet consectetur adipisicing elit. Dolore corrupti, at nulla officia recusandae quam earum fugiat mollitia
+            consectetur sit facilis officiis incidunt, esse possimus nostrum dignissimos nesciunt! Molestiae, provident.
+          </p>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <!-- ----------------------------------------left console---------------------------------------- -->
+      <div class="col-8 table-responsive">
+        <h3>Popular Trending Books</h3>
+        <table class="table table-bordered table-sm text-light  q2w">
+          <thead>
+            <tr>
+              <th>Book Cover</th>
+              <th>Book Title</th>
+              <th>Author</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center"><img src="./images/book1.jpg" alt="" class="rounded"></td>
+              <td>The Life and lies of Albus Dumberdore</td>
+              <td>Arthur Whiggins</td>
+              <td>44.33 <span class="badge bg-info">Galleons</span></td>
+            </tr>
+            <tr>
+              <td class="text-center"><img src="./images/book2.jpg" alt="" class="rounded-circle"></td>
+              <td>Holiday with hags</td>
+              <td>Riley Sherlin</td>
+              <td>293.50 <span class="badge bg-info">Galleons</span></td>
+            </tr>
+            <tr>
+              <td class="text-center"><img src="./images/book3.jpg" alt="" class="img-thumbnail"></td>
+              <td>The monster book of E</td>
+              <td>Edward Silizas</td>
+              <td>551.20 <span class="badge bg-info">Galleons</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- ----------------------------------------right console---------------------------------------- -->
+      <div class="container col-4">
+        <div class="card">
+          <div class="card-header text-dark">
+            Verify you are Magical
+          </div>
+          <div class="card-body text-dark">
+            <form>
+              <div class="mb-3">
+                <label for="loginEmailId" class="form-label">Email</label>
+                <input type="email" class="form-control" id="loginEmailId">
+              </div>
+              <div class="mb-3">
+                <label for="loginPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="loginPassword">
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword">
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+            </form>
+          </div>
+          <div class="card-footer">
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button class="btn btn-primary" type="button">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
