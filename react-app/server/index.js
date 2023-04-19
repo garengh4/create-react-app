@@ -20,7 +20,7 @@ const db = require("./lib/in-memory-db");
 //
 // Because it exports a function that expects the `db` as a parameter, we can
 // require it and pass the `db` parameter immediately:
-const DataHelpers = require("./lib/data-helper.js")(db); //TODO CHECK
+const DataHelpers = require("./lib/data-helpers.js")(db);
 
 // Update the dates for the initial tweets (data-files/initial-tweets.json).
 require("./lib/date-adjust")();

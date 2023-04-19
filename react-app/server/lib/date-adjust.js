@@ -1,11 +1,11 @@
 "use strict";
 
-// Require fs to write to tweets.json
+// Require fs to write to initial-tweets.json
 const fs = require("fs");
 // Requiring a JSON file automatically parses it and returns the data.
-let tweetsJSON = require('../data-files/tweets.json');
+let tweetsJSON = require('../data-files/initial-tweets.json');
 
-// Write recent dates to tweets.json
+// Write recent dates to initial-tweets.json
 // Specifically sync to not interfere with student functions
 module.exports = () => {
   // One day in milliseconds is 86400000ms or...
@@ -18,5 +18,5 @@ module.exports = () => {
     return tweet;
   });
   // Re-write the tweets with the new date values.
-  fs.writeFileSync('server/data-files/tweets.json', JSON.stringify(tweetsJSON, null, 2), { encoding: "utf8" });
+  fs.writeFileSync('server/data-files/initial-tweets.json', JSON.stringify(tweetsJSON, null, 2), { encoding: "utf8" });
 };
