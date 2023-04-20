@@ -264,6 +264,15 @@ Properties should be immutable => never change once passed to the component
 
 Component normally does not re-render if the properties have changed, unless the parent element that passes those properties is also re-rendering
 
-Sending Data Across Component
-- outer to inner => through assigning props in the inner component
-- inner to outer => react follows a one-way data flow approach. should avoid as much as possible
+**Sending Data Across Component**
+
+outer to inner
+- through assigning props in the inner component
+
+inner to outer
+- react follows a one-way data flow approach. should avoid as much as possible
+- approach: send a function from outer component to inner component => using props `onChange`. inner component will run that function and pass some data to it as an argument and this way send data to outer component
+- although we should try avoid sending from inner to outer components, event handling is almost always sending data from inner to outer components => should avoid creating new events in our custom components and then sending data out.
+
+`React.createElement('select', {}, "")` is the same as `<select></select` in JSX
+
