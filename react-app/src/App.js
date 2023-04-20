@@ -3,13 +3,14 @@ import logo from './logo.svg';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 import './App.css';
+import { Login } from './components/login';
 
 function App() {
   let [counter, setCounter] = useState(0);
 
   let handleBootstrapButtonClick = (event) => {
-    event.target.style.color='pink';
-    setCounter(counter+1);
+    event.target.style.color = 'pink';
+    setCounter(counter + 1);
   }
 
 
@@ -23,8 +24,10 @@ function App() {
         ----------------------------------------------------------------------------------------------
         <button onClick={handleBootstrapButtonClick} className="btn btn-primary">bootstrap button</button>
         <p>Num of times clicked: {counter}</p>
-
       </header>
+      <body className="App-body">
+        <Login />
+      </body>
     </div>
   );
 }
