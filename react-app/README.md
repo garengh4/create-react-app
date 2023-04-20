@@ -4,8 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Notes
 
-- import styles like `npm install bootstrap` globally into `index.js`.
-- import styles locally into `app.js`
+- import styles like `npm install bootstrap` globally into `src/index.js`.
+- import styles locally into `src/App.js`
 
 
 ### Issues
