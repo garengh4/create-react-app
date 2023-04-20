@@ -256,7 +256,7 @@ React element arrays
 - when rendered need a property on them called "key" and it need to be unique for each element => this value is an identifier
 - reason key is needed: react uses positiion of elements in the tree to identify them and keep their state. So if element is deleted from array, next element takes the previous element position. 
 
-Passng argument to component:
+Passing argument to component:
 - we can access property whose value is assigned in this component => `argObject.<propertyName>`
 - all children of thiis component => `argObject.children`
 
@@ -274,5 +274,12 @@ inner to outer
 - approach: send a function from outer component to inner component => using props `onChange`. inner component will run that function and pass some data to it as an argument and this way send data to outer component
 - although we should try avoid sending from inner to outer components, event handling is almost always sending data from inner to outer components => should avoid creating new events in our custom components and then sending data out.
 
-`React.createElement('select', {}, "")` is the same as `<select></select` in JSX
+`React.createElement('select', {}, "")` is the same as `<select></select>` in JSX
 
+Beside ternary operator, there are other ways to do if-then-else:
+- we can use if-then-else syntax of JS as long as it is not inside the JSX elements (within the curly brackets, it is not allowed to use for loops or if-then syntax)
+- we can use `&&` and `||` operator => short circuiting
+
+Assigning default values to props:
+- since our component is a function and props are function argument, and we also know how to have default values for function arguments
+- we know how to default value our props
