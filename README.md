@@ -175,9 +175,9 @@ React components are expected to be Pure Functions and side effects are extracte
 
 2 types of React Components: Classes and Functions
 - class based components: deprecated
-- **function based components**: UI portion looks like what is returned by thte function (html and component tags). UI behaves (events and event listeners) => functions inside the function as well as other code inside that function. Events and Event listeners can be bound inside that function.
+- **function based components**: UI portion looks like what is returned by the function (html and component tags). UI behaves (events and event listeners) => functions inside the function as well as other code inside that function. Events and Event listeners can be bound inside that function.
 
-SPA always display a single hyml page and then JS takes over to change views as needed.
+SPA always display a single html page and then JS takes over to change views as needed.
 - usually the single html file is `index.html` or `main.html`
 
 **Create React Apps**
@@ -201,7 +201,7 @@ Binding framework => binding is required a lot and doing it is grunt work => saf
 
 User Defined Component => reusable, encapsulated, representattion fo UI portion like an HTML tag with their properties
 
-Class Based Components => allowed instance vars to be manipulated by coder freely and this freedom caused code against best practices and introduced bug and slowness etc. => best not let the coder have that freedom to manipulate instance vars whattever way they like.
+Class Based Components => allowed instance vars to be manipulated by coder freely and this freedom caused code against best practices and introduced bug and slowness etc. => best not let the coder have that freedom to manipulate instance vars whatever way they like.
 
 ReactDOM => OOP representation of UI view controlled by React (just like a browser DOM represents the UI to be displayed). It is the highest level element in the element tree (like browser DOM's root element)
 - root node has method called `render` that can used to display any React components
@@ -249,3 +249,9 @@ react allows us to create state vaiables by using a hook into the React function
 shortcut available in JS to quickly access individual elements of an array or individual fields of an object
 - deconstructing object: key names have to match the var name and we can access those values quickly
 - deconstructing an object that is passed as an argument to a functioin => discuss with props
+
+## Topic: React Hooks, Props
+
+React element arrays
+- when rendered need a property on them called "key" and it need to be unique for each element => this value is an identifier
+- reason key is needed: react uses positiion of elements in the tree to identify them and keep their state. So if element is deleted from array, next element takes the previous element position. 

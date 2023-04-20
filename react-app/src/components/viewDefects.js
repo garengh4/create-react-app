@@ -48,17 +48,16 @@ export function ViewDefects() {
                         </tr>
                     </thead>
                     <tbody>
-                        {defects.map(defect => {
-                            return (
+                        {defects.map(defect => (
                                 <tr>
                                     <td>{defect.category}</td>
                                     <td>{defect.description}</td>
                                     <td>{defect.priority}</td>
                                     <td>{defect.status}</td>
-                                    <td>{defect.status == 'open' ? 'Close Defect' : 'No Action Pending'}</td>
+                                    <td>{defect.status === 'open' ? 'Close Defect' : 'No Action Pending'}</td>
                                 </tr>
                             )
-                        })}
+                        )}
                     </tbody>
                 </table>
 

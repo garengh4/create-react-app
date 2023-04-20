@@ -43,7 +43,7 @@ export function Login() {
                             <br />
                             <button onClick={onloginClick}>Change username and password</button>
                         </form>
-                        {login.username=='admin' ? <p> === Admin Login {login.password} === </p> : <p> === Non-Admin Login ===</p>}
+                        {login.username ==='admin' ? <p> === Admin Login {login.password} === </p> : <p> === Non-Admin Login ===</p>}
                     </div>
                 </div>
             </div>
