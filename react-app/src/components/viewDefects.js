@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ViewDefectsRow } from "./viewDefectsRow";
 
 
 export function ViewDefects() {
@@ -66,13 +67,7 @@ export function ViewDefects() {
                     </thead>
                     <tbody>
                         {defectsToDisplay.map(defect =>
-                            <tr key={defect.id}>
-                                <td>{defect.category}</td>
-                                <td>{defect.description}</td>
-                                <td>{defect.priority}</td>
-                                <td>{defect.status}</td>
-                                <td>{defect.status === 'open' ? 'Close Defect' : 'No Action Pending'}</td>
-                            </tr>
+                            <ViewDefectsRow defect={defect} key={defect.id}/>
                         )}
                     </tbody>
                 </table>
