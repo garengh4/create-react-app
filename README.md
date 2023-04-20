@@ -115,7 +115,7 @@ When JS instance starts running in the browser window, there are global vars ava
 - `window` => browser window object
 - `document` => entire html document object
 
-Frameworks like React, Angular, etc. use JS to efficiently manage views in our frontend. The browser loads the page only once in the beginning, then all the view changes that happen are through JS => Single Page Application (SPA). Browsers do fetch http requestts but do not render directly.
+Frameworks like React, Angular, etc. use JS to efficiently manage views in our frontend. The browser loads the page only once in the beginning, then all the view changes that happen are through JS => Single Page Application (SPA). Browsers do fetch http requests but do not render directly.
 
 Node.js is the JS interpreter that was made available for OS like Mac, Windows, Linux, etc.
 - with node.js we were able to run JS code outside the browsers
@@ -127,7 +127,19 @@ Node.js is the JS interpreter that was made available for OS like Mac, Windows, 
 - Angular and React projects: we write code on our compter, but the app actually runs in the browser through `script` tag in some HTML file. The apps do not execute on our computers. 
 - We need to pack our JS code into a JS file bundle and include it in a `script` tag somewhere.
 
-add stuff here
+Webpack is one of the most popular tools to pack js applications that are written on a computer but run in browsers. Packing is generally done automatically.
+
+**NPM (node package manager) - Node.js package manager/build tool**
+
+main purpose of npm is dependency (other people's code used in our project) and project management (like maven in Java)
+
+Node projects look for dependencies in `node_modules` folder, and then in parents folder's `node_modules`, parent's parent's and so on.
+
+Npm commands:
+- `npm install` or `npm i` => looks at a file called **package.json** (like pom file in Maven projects) in the current folder and downloads all dependencies in the node_modules folder
+- `npm install <dependencyName>` or `npm i <dependencyName>` installs thatt dependenct and also adds a line in the package.json for adding thtat dependency
+- `npm i g <dependencyName>` => adding the `g` tag means instally globally, all projects will have access AND is installed somewhere else instead of `node_modules` => typically done for utitliyt programs `ng` or `create-react-app`.
+- lots of other commands => `npm start`, `npm build`, `npm init` (create a new project)
 
 **JavaScript Rules and Syntax**
 - `let` or `const` is used to create variables
@@ -135,6 +147,14 @@ add stuff here
 - Arrow function in JS looks like labmda in Java
 - arrow is equals followed by greater than symbols
 - no types of specified in JS
+- objects in JS are created as "key-value" pairs. Key are iinstance var names and values are the values of the inistance vars
+- pread operator to creatte copies of objects and arrays. Syntax is 3 dots followed by the arrayName/ObjectName => spread key-value pairs or arrayElements into wherever this spread op is used
+   - using spread operator for objects can override fields. to remove any field, override its value to "null"
+- arrays/objects should be copied instead of modifying them due to immutability nature
+
+Functional Programming => using pure functions (without side effects) in code and passing and returning other functions; immutability is central in functional programming
+
+Pure Function => anything that a code does that affects computer input/output or network etc. (e.g. printing on the console or in a log file; loggin/access API over the network)
 
 **Promises and Async Operations**
 - JS is a single threaded langrage => never allowed to create separate threads and wait for things
@@ -145,17 +165,87 @@ add stuff here
 - Promises are a way to do this async programming in a manageable way => easy to understand and manage
   - promise contain config info on what will happen if `thatObject.then()` is executed. typically a value is returned after some delay. Can do chaining operations.
   - code structure: 
-  `somePromise.then(value => {do sth with valuue returned by promise after whatever time}).catch(error => {do sth with error object returned by the promise})`
-
+  `somePromise.then(value => {do sth with value returned by promise after whatever time}).catch(error => {do sth with error object returned by the promise})`
+- `let someTimieout = setTimeout(fnToExecute, timeoutToExecuteTheFnAfter);` and `let someInterval = setnterval(fnToExecute, intervalAtWhichToExecuteRepeatedly)`
 
 ## Topic: React
 
-add stuff here
+React components are expected to be Pure Functions and side effects are extracted out as much as possible
+- Pure functions => very efficient, fast, output can be cached for specific inputs => since there are not gonna be any side effects and we know what out put happens for specific inputs
+
+2 types of React Components: Classes and Functions
+- class based components: deprecated
+- **function based components**: UI portion looks like what is returned by thte function (html and component tags). UI behaves (events and event listeners) => functions inside the function as well as other code inside that function. Events and Event listeners can be bound inside that function.
+
+SPA always display a single hyml page and then JS takes over to change views as needed.
+- usually the single html file is `index.html` or `main.html`
 
 **Create React Apps**
 - `npm i -g create-react-app`
-- inside .....
+- running `create-react-app <appName>` creates the starter code and installs all node_modules needed
+= rrunning `npm start` inside folder launches app at `http://localhost:3000`
 
+React is going for the EFFICIENT and FAST framework
 - focus on immutability => will be copying arrays and objects a lot using spread operator
 - focus on separation of "pure functions" and "side effects"
 - `useEffect` hook in react is explicitly named as to be using "side effects"
+
+
+Model => representation (usually as an OOP object) of UI view or portion of a UI view
+
+View => actual UI that displays
+
+Component => "reusuable, "encapsulated" representation of some UI portion
+
+Binding framework => binding is required a lot and doing it is grunt work => safer (less bugs), more efficient to automate.
+
+User Defined Component => reusable, encapsulated, representattion fo UI portion like an HTML tag with their properties
+
+Class Based Components => allowed instance vars to be manipulated by coder freely and this freedom caused code against best practices and introduced bug and slowness etc. => best not let the coder have that freedom to manipulate instance vars whattever way they like.
+
+ReactDOM => OOP representation of UI view controlled by React (just like a browser DOM represents the UI to be displayed). It is the highest level element in the element tree (like browser DOM's root element)
+- root node has method called `render` that can used to display any React components
+
+**React.StrictMode**
+
+- Is a utility component, does not display anything, just add some functionality to all child components
+- Renders and re-renders the components (2 times render => allows a developer to see any side effects in their component code)
+  - if no side effect, 2 times rendering is exactly same as one time rendering
+  - If side effect, things will happen twice => should be extracted ouut of component and make them pure functions
+- matters in development, not in prodution
+
+**JSX**
+- syntax looks like HTML elements
+- property name `class` in HTML is called `className` because `class` is a keyword in JS
+- `{}` in JSX syntax are used to have JS code executte withtin it. `{}` evaluate to JS expression value as the JS code inside that is run. `{}` based interpolation can be nested as mch as needed
+- attribute names are camelCased
+- attach functions not function calls on the right hand side. don't include `()`
+- event object is always passed as the first argumentt to the eventHandler
+- rules: JSX tags need to be closed. returned value from component has to be a single element. 
+
+**State**
+
+react allows us to create state vaiables by using a hook into the React functionality
+- `useState` function => 1st argument is the initial state of the var. Return array of 2 values:
+  - 1st is reference to access the state var
+  - 2nd is a setter function to update values of that state var; react updates the var and rerenders => Binding
+- setter function returned by useState is the only way React allows auto biniding and re-rendering
+- React components will only render:
+  - if either theiir parent is forced to re-render or the component is forced using code to re-render
+  - if a seetter function returned by useState is used to update thte state
+- no limit to number of state variables.
+- types of state vars: array, object, number, boolean, strings
+- use the setter function to update state
+
+**Form**
+- typing in input: onchange listener can capture the latest value and stttore it in state var using the setter fn
+- always create new object when using the setter fuunction. using spread operator to get original key-value pairs ini the new object and then override just the username field
+- submit event cause browser to send info. Default browsers submit the form info to the currentt page itself
+- causes a browser based reload of the currentt page => everthing gets restarted including react state and components
+- default behaviour can be prevented by `event.preventDefault()` 
+
+**Deconstructing Array and Object**
+
+shortcut available in JS to quickly access individual elements of an array or individual fields of an object
+- deconstructing object: key names have to match the var name and we can access those values quickly
+- deconstructing an object that is passed as an argument to a functioin => discuss with props
