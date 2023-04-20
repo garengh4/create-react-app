@@ -7,11 +7,16 @@ export function Login() {
 
     let [login, setLogin] = useState({ username: "", password: "" });
 
-    
+
     let [formSubmitted, setFormSubmitted] = useState(false);
+
     const submitForm =(event)=>{
         event.preventDefault();
         setFormSubmitted(true);
+    }
+
+    const handleChange = (event) => {
+        
     }
     return (
         <div className="container">
