@@ -17,7 +17,7 @@ export function ViewDefects() {
         { "id": 7, "category": "UI", "priority": 1, "status": "closed", "description": "See screenshots" },
     ]
 
-    let [defects, setDefects] = useState(allDefects)
+    let [defects] = useState(allDefects)
 
     let defectsToDisplay = defects
         .filter(x => category === 'All' ? true : x.category === category)
