@@ -43,6 +43,7 @@ export function Login() {
                             <br />
                             <button onClick={onloginClick}>Change username and password</button>
                         </form>
+                        {/* TODO: FIX LOGIN VERIFICATION HERE, BUT HOW TO ROUTE? */}
                         {login.username ==='admin' ? <p> === Admin Login {login.password} === </p> : <p> === Non-Admin Login ===</p>}
                     </div>
                 </div>
