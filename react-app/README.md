@@ -2,9 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 
-### Notes
+### Overall Layout
 
-- import styles like `npm install bootstrap` globally into `src/index.js`.
+- import styles like `npm install bootstrap` globally into your component js scripts.
 - import styles locally into `src/App.js`
 
 

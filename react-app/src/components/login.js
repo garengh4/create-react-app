@@ -1,6 +1,6 @@
 
 
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+// import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import React, { useState } from "react";
 
 export function Login() {

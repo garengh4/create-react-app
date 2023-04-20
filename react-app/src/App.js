@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import logo from './logo.svg';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 import './App.css';
 import { Login } from './components/login';
+import { ViewDefects } from './components/viewDefects';
 
 function App() {
   let [counter, setCounter] = useState(0);
@@ -25,9 +25,9 @@ function App() {
         <button onClick={handleBootstrapButtonClick} className="btn btn-primary">bootstrap button</button>
         <p>Num of times clicked: {counter}</p>
       </header>
-      <body className="App-body">
-        <Login />
-      </body>
+
+      <div className="container mb-3"><Login /></div>
+      <div className="container mb-3"><ViewDefects /></div>
     </div>
   );
 }
