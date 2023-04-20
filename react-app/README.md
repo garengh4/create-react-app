@@ -1,11 +1,17 @@
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+
+### Notes
+
+- import styles like `npm install bootstrap` globally into `index.js`.
+- import styles locally into `app.js`
+
+
 ### Issues
 
-- 6 high severity vulnerabilities at `npx create-react-app react-app`
-
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- `npx create-react-app react-app` has 6 high severity vulnerabilities.
+- 
 
 ## Available Scripts
 
