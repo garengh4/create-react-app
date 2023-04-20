@@ -5,15 +5,14 @@ import React, { useState } from "react";
 
 export function Login() {
 
-    let [login, setLogin] = useState({ username: "", password: "" })
-    let onloginClick = () => {
-        setLogin({
-            username: "abc",
-            password: "xyz"
-        })
+    let [login, setLogin] = useState({ username: "", password: "" });
+
+    
+    let [formSubmitted, setFormSubmitted] = useState(false);
+    const submitForm =(event)=>{
+        event.preventDefault();
+        setFormSubmitted(true);
     }
-
-
     return (
         <div className="container">
             <div className="col-6 offset-3">
@@ -22,7 +21,7 @@ export function Login() {
                         Login Form
                     </div>
                     <div className="card-body">
-                        <form onSubmit={(event) => { event.preventDefault() }}>
+                        <form onSubmit={submitForm}>
                             <div className="mb-3">
                                 <label>Username</label>
                                 <input
@@ -35,16 +34,16 @@ export function Login() {
                                 <input
                                     onChange={(ev) => setLogin({ ...login, password: ev.target.value })}
                                     value={login.password}
-                                    type="text" className="form-control" />3
+                                    type="text" className="form-control" />
                             </div>
                             <button type="submit" className="btn btn-primary">Login</button>
                             <br />
-                            {JSON.stringify(login)}
+                            {/* {JSON.stringify(login)} */}
                             <br />
-                            <button onClick={onloginClick}>Change username and password</button>
+                            {/* <button onClick={onloginClick}>Change username and password</button> */}
                         </form>
-                        {/* TODO: FIX LOGIN VERIFICATION HERE, BUT HOW TO ROUTE? */}
-                        {login.username ==='admin' ? <p> === Admin Login {login.password} === </p> : <p> === Non-Admin Login ===</p>}
+                        {formSubmitted ? login.username == 'admin' && login.password == 'admin' ? 'Welcome Admin' : 'Invalid Credentials' : null}
+
                     </div>
                 </div>
             </div>

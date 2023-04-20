@@ -67,7 +67,7 @@ export function ViewDefects() {
                     </thead>
                     <tbody>
                         {defectsToDisplay.map(defect =>
-                            <ViewDefectsRow defect={defect} key={defect.id}/>
+                            <ViewDefectsRow defect={defect} key={defect.id}>{defect.description}</ViewDefectsRow>
                         )}
                     </tbody>
                 </table>
