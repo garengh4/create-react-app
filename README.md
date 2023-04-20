@@ -255,3 +255,15 @@ shortcut available in JS to quickly access individual elements of an array or in
 React element arrays
 - when rendered need a property on them called "key" and it need to be unique for each element => this value is an identifier
 - reason key is needed: react uses positiion of elements in the tree to identify them and keep their state. So if element is deleted from array, next element takes the previous element position. 
+
+Passng argument to component:
+- we can access property whose value is assigned in this component => `argObject.<propertyName>`
+- all children of thiis component => `argObject.children`
+
+Properties should be immutable => never change once passed to the component
+
+Component normally does not re-render if the properties have changed, unless the parent element that passes those properties is also re-rendering
+
+Sending Data Across Component
+- outer to inner => through assigning props in the inner component
+- inner to outer => react follows a one-way data flow approach. should avoid as much as possible
