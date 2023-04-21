@@ -3,16 +3,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 ### Overall Layout
-
-- import styles like `npm install bootstrap` globally into your component js scripts.
-- import styles locally into `src/App.js`
-- npx json-server --watch `db/defects.json`
+- the `src/App.js` is the homepage layout
+- import local styles into your components as shown in `src/components/login.js`
+- import global styles like `npm install bootstrap` globally in the `src/index.js`.
+- json-server --watch `./db/defects.json` to run backend
 
 
 ### Issues
-
 - `npx create-react-app react-app` has 6 high severity vulnerabilities.
-- 
+- npm install json-server -global
+- npm install axios
+- npm install bcryptjs
 
 ## Available Scripts
 

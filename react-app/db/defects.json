@@ -2,12 +2,12 @@
     "users": [
         {
             "username": "developer",
-            "password":"Developer@123",
+            "password":"$2a$12$NCm6nWCxFVqYZgudDZ4XBOSqHN9tyxUikAc1oYUPaKE1NkWYdMJNS",
             "role":"developer"
         },
         {
             "username": "tester",
-            "password":"Tester@123",
+            "password":"$2a$12$gONsnKQHnABpc.tyrdQ7l.gOKboJbJmGH5UBwYBZWMW5Lh2wMmg4W",
             "role":"tester"
         }
     ],
