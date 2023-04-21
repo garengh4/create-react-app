@@ -10,13 +10,16 @@ export function Login() {
 
     let [formSubmitted, setFormSubmitted] = useState(false);
 
-    const submitForm =(event)=>{
+    const submitForm = (event) => {
         event.preventDefault();
         setFormSubmitted(true);
     }
 
-    const handleChange = (event) => {
-        
+    const handleFormFieldChange = (formField) => {
+        return (event) => {
+            setLogin({ ...login, [formField]: event.target.value });
+            setFormSubmitted(false);
+        }
     }
     return (
         <div className="container">
@@ -30,23 +33,20 @@ export function Login() {
                             <div className="mb-3">
                                 <label>Username</label>
                                 <input
-                                    onChange={(event) => setLogin({ ...login, username: event.target.value })}
+                                    onChange={handleFormFieldChange("username")}
                                     value={login.username}
                                     type="text" className="form-control" />
                             </div>
                             <div className="mb-3">
                                 <label>Password</label>
                                 <input
-                                    onChange={(ev) => setLogin({ ...login, password: ev.target.value })}
+                                    onChange={handleFormFieldChange("password")}
                                     value={login.password}
                                     type="text" className="form-control" />
                             </div>
                             <button type="submit" className="btn btn-primary">Login</button>
-                            <br />
-                            {/* {JSON.stringify(login)} */}
-                            <br />
-                            {/* <button onClick={onloginClick}>Change username and password</button> */}
                         </form>
+                        {/* TODO: move loginValidation to somewhere else? */}
                         {formSubmitted ? login.username == 'admin' && login.password == 'admin' ? 'Welcome Admin' : 'Invalid Credentials' : null}
 
                     </div>
