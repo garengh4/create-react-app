@@ -283,3 +283,37 @@ Beside ternary operator, there are other ways to do if-then-else:
 Assigning default values to props:
 - since our component is a function and props are function argument, and we also know how to have default values for function arguments
 - we know how to default value our props
+
+## Topic: useEffect, Axios, API requests
+
+The setter fns returned by useState => 2 ways:
+- If non-function is passed tot itt, it directly assigns that value to the state var
+- If function is passed to it, it uses that function to compute the sttatte (by passing the current state var value to) and then set it => this approach is safest if the new value depends in any way on the prev value of the state var.
+
+**UseEffect**
+- all hooks begin witht "use" => indicate that React is providing that service => kind of like dependency injection from React into our component
+- all hooks can only be used at the top level in the component functions; cannot use them nested within other code blocks like if-then-else or for-loops or inner functions
+- There is exactly 1 type of inner function in which we can use these hooks => the function that is used to create custom hook => note that we can create our own hooks tthat may use 1 or more React's pre-existing hooks
+- we can have useEffects as many as we need
+
+Effect => side effects
+
+useEffect => allows us to add side effects to our otherwise pure function component
+
+
+Typically Side Effects are done:
+- right after the component initializes (like onInit in Angular) => e.g. make an API call and fetch initial data to display
+- anytime a specific var changes
+- right before the component is to be destroyed
+
+useEffect can combine the logic at init and destroy together in 1 function. useEffect has first argument that is a function.
+
+`useEffect( functionToRun, objectArrayThatIncludesAllObjectsWhoseChangesCauseTheFunctionToRun);`
+
+How to run some code only at initialization? 
+
+`useEffect(() = {
+  // code to run for side effects
+})`
+
+How about only at init and/or destroy? How to run at init, destroy, and every re-render? How to run some code only at init, at every re-render
