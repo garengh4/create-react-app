@@ -6,6 +6,8 @@ import { Login } from './components/login';
 import { LoginTwo } from './components/loginTwo';
 
 import { ViewDefects } from './components/viewDefects';
+import { ViewDefects2 } from './components/viewDefects2';
+
 import { StopWatch } from './components/stopWatch';
 
 function App() {
@@ -27,13 +29,17 @@ function App() {
         ----------------------------------------------------------------------------------------------
         <button onClick={handleBootstrapButtonClick} className="btn btn-primary">bootstrap button</button>
         <p>Num of times clicked: {counter}</p>
+        <div className="container mt-4"><StopWatch /></div>
+
       </header>
 
       <div className="container mt-4"><Login /></div>
       <div className="container mt-4"><LoginTwo /></div>
 
       <div className="container mt-4"><ViewDefects /></div>
-      <div className="container mt-4"><StopWatch /></div>
+      <div className="container mt-4"><ViewDefects2 /></div>
+
+
 
     </div>
   );

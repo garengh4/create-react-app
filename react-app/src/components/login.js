@@ -46,9 +46,9 @@ export function Login() {
                             </div>
                             <button type="submit" className="btn btn-primary">Login</button>
                         </form>
-                        {/* TODO: move loginValidation to somewhere else? */}
+                        {/* TODO: How to move loginValidation to json and not bcrypt*/}
                         {formSubmitted ? login.username == 'admin' && login.password == 'admin' ? 'Welcome Admin' : 'Invalid Credentials' : null}
-
+                        <p>username: admin, password: admin</p>
                     </div>
                 </div>
             </div>

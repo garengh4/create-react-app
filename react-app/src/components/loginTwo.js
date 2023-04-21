@@ -67,7 +67,8 @@ export function LoginTwo() {
                             </div> 
                             <button type="submit" className="btn btn-primary">Login</button>
                         </form>
-                        {formSubmitted ? foundUser ? 'Welcome ' + foundUser.username : 'Invalid Credentials' : null}
+                        {formSubmitted ? foundUser ? 'Welcome ' + login.username : 'Invalid Credentials' : null}
+                        <p>username: developer,tester123 | password: developer123,tester123</p>
                     </div>
                 </div>
             </div>
