@@ -1,29 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ViewDefectsRow } from "./viewDefectsRow";
-
+import axios from 'axios'
 
 export function ViewDefects() {
 
     let [category, setCategory] = useState('All');
     let [priority, setPriority] = useState('All');
-
-    let allDefects = [
-        { "id": 1, "category": "UI", "priority": 2, "status": "open", "description": "Submit button coming to extreme left; see screenshots" },
-        { "id": 2, "category": "Functional", "priority": 1, "status": "open", "description": "Some stuff" },
-        { "id": 3, "category": "Change Request", "priority": 3, "status": "closed", "description": "Add remove user functionality" },
-        { "id": 4, "category": "Change Request", "priority": 2, "status": "closed", "description": "Fix button css" },
-        { "id": 5, "category": "Functional", "priority": 2, "status": "open", "description": "Some extra stuff" },
-        { "id": 6, "category": "Change Request", "priority": 1, "status": "open", "description": "Remove remove user functionality" },
-        { "id": 7, "category": "UI", "priority": 1, "status": "closed", "description": "See screenshots" },
-    ]
-
-    let [defects] = useState(allDefects)
+    let [defects, setDefects] = useState([]);
+    let [errorMessage, setErrorMessage] = useState('');
 
     let defectsToDisplay = defects
         .filter(x => category === 'All' ? true : x.category === category)
         .filter(x => priority === 'All' ? true : x.priority == priority);
 
+    useEffect(() => {
+        axios.get('http://localhost:5000/defects')
+            .then(response => setDefects(response.data))
+            .catch(error => setErrorMessage("Unable to fetch defects at src/components/viewDefects.js"))
+    }, []);
 
+    
     return (
         <div className="container border">
             <h2 className="text-center mb-4">Defect Tracker</h2>
@@ -55,6 +51,9 @@ export function ViewDefects() {
 
                 <h3 className="text-center mb-3">Defect Details</h3>
                 <p className="text-center text-danger">Search Results: {defectsToDisplay.length}</p>
+
+                {errorMessage ? <div className="alert alert-danger">{errorMessage}</div> : null}
+
                 <table className="table text-center table-bordered">
                     <thead>
                         <tr className="bg-primary text-light">
@@ -67,7 +66,16 @@ export function ViewDefects() {
                     </thead>
                     <tbody>
                         {defectsToDisplay.map(defect =>
-                            <ViewDefectsRow defect={defect} key={defect.id}>{defect.description}</ViewDefectsRow>
+                            <ViewDefectsRow
+                                onUpdateDefect={(updatedDefect) => {
+                                    let updateDefects = defects.map(defect => defect.id == updatedDefect.id ? updatedDefect : defect);
+                                    setDefects(updateDefects); // update defect list
+                                }}
+                                onUpdateError={(msg) => setErrorMessage(msg)}
+                                defect={defect}
+                                key={defect.id}
+                            >{defect.description}
+                            </ViewDefectsRow>
                         )}
                     </tbody>
                 </table>
