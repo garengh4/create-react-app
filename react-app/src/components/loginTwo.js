@@ -1,6 +1,3 @@
-
-
-// import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import bcrypt from "bcryptjs"
@@ -16,11 +13,10 @@ export function LoginTwo() {
         event.preventDefault();
         setFormSubmitted(true);
 
-        // check if password matches
         let user = users.find(u => u.username == login.username);
-        if(user){
-            // TODO: remove bcrypt here: password are developer123 and tester123
-            if (bcrypt.compareSync(login.password, user.password)){
+        if (user) {
+            {/* TODO: How to move loginValidation to json and not bcrypt*/ }
+            if (bcrypt.compareSync(login.password, user.password)) {
                 setFoundUser(true);
             }
 
@@ -39,8 +35,8 @@ export function LoginTwo() {
     useEffect(() => {
         axios.get("http://localhost:5000/users")
             .then(response => setUsers(response.data))
-            .catch(error => {})
-    },[])
+            .catch(error => { })
+    }, [])
 
     return (
         <div className="container">
@@ -64,7 +60,7 @@ export function LoginTwo() {
                                     onChange={handleFormFieldChange("password")}
                                     value={login.password}
                                     type="text" className="form-control" />
-                            </div> 
+                            </div>
                             <button type="submit" className="btn btn-primary">Login</button>
                         </form>
                         {formSubmitted ? foundUser ? 'Welcome ' + login.username : 'Invalid Credentials' : null}
