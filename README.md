@@ -284,7 +284,7 @@ Assigning default values to props:
 - since our component is a function and props are function argument, and we also know how to have default values for function arguments
 - we know how to default value our props
 
-## Topic: useEffect, Axios, API requests
+## Topic: useEffect, API Access with Axios, Routing
 
 The setter fns returned by useState => 2 ways:
 - If non-function is passed tot itt, it directly assigns that value to the state var
@@ -312,8 +312,45 @@ useEffect can combine the logic at init and destroy together in 1 function. useE
 
 How to run some code only at initialization? 
 
-`useEffect(() = {
+```
+useEffect(() = {
   // code to run for side effects
-})`
+}, [])
+```
 
-How about only at init and/or destroy? How to run at init, destroy, and every re-render? How to run some code only at init, at every re-render
+How about only at init and then come other code only at destroy? 
+
+```
+useEffect( () = {
+  // code to run for side effects
+  
+  return someOtherFnThatRunsOnlyOnDestroy
+}, [])
+```
+
+How to run at init, destroy, and every re-render? 
+```
+useEffect( () = {
+  // code to run for side effects
+}) // note no second argument
+```
+How to run some code only at init, at every change of certain variables?
+```
+useEffect( () = {
+  // code to run for side effects
+}, [var1, var2])
+```
+useEffect for init and destroy is always separate from the one used onChange of variable. Init and destroy code is always together.
+
+**Start Json Server**
+
+`json-server -w <filename.json> -p 4000` => start server at localhost:4000
+
+For hashed passwords, we need the bcryptjs library in our react app
+- `npm i bcryptjs`
+- useEffect for fetching users from API using Axios
+- onSubmit, check if hashed password entered by the user matches the hashed password from backend. If match => welcome thatt username, else incorrect credentials
+
+
+when to separate into 2 components versus do everything in 1 component. Rule: 'Strong cohesion and loose coupling' => within the same object/function the tasks done should be very closely related to each other. Across diffenrent object/functions, there should be as little dependency as possible.
+
