@@ -1,0 +1,65 @@
+{
+    "users": [
+        {
+            "username": "developer",
+            "password":"Developer@123",
+            "role":"developer"
+        },
+        {
+            "username": "tester",
+            "password":"Tester@123",
+            "role":"tester"
+        }
+    ],
+    "defects": [
+        {
+            "id": 1,
+            "category": "UI",
+            "priority": 2,
+            "status": "open",
+            "description": "Submit button coming to extreme left; see screenshots"
+        },
+        {
+            "id": 2,
+            "category": "Functional",
+            "priority": 1,
+            "status": "open",
+            "description": "Some stuff"
+        },
+        {
+            "id": 3,
+            "category": "Change Request",
+            "priority": 3,
+            "status": "closed",
+            "description": "Add remove user functionality"
+        },
+        {
+            "id": 4,
+            "category": "Change Request",
+            "priority": 2,
+            "status": "closed",
+            "description": "Fix button css"
+        },
+        {
+            "id": 5,
+            "category": "Functional",
+            "priority": 2,
+            "status": "open",
+            "description": "Some extra stuff"
+        },
+        {
+            "id": 6,
+            "category": "Change Request",
+            "priority": 1,
+            "status": "open",
+            "description": "Remove remove user functionality"
+        },
+        {
+            "id": 7,
+            "category": "UI",
+            "priority": 1,
+            "status": "closed",
+            "description": "See screenshots"
+        }
+    ]
+}

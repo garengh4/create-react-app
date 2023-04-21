@@ -6,6 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - import styles like `npm install bootstrap` globally into your component js scripts.
 - import styles locally into `src/App.js`
+- npx json-server --watch `db/defects.json`
 
 
 ### Issues
