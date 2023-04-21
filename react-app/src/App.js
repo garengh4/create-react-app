@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Login } from './components/login';
 import { ViewDefects } from './components/viewDefects';
+import { StopWatch } from './components/stopWatch';
 
 function App() {
   let [counter, setCounter] = useState(0);
@@ -26,8 +27,10 @@ function App() {
         <p>Num of times clicked: {counter}</p>
       </header>
 
-      <div className="container mb-3"><Login /></div>
-      <div className="container mb-3"><ViewDefects /></div>
+      <div className="container mt-4"><Login /></div>
+      <div className="container mt-4"><ViewDefects /></div>
+      <div className="container mt-4"><StopWatch /></div>
+
     </div>
   );
 }

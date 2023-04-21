@@ -18,7 +18,7 @@ export function Login() {
     const handleFormFieldChange = (formField) => {
         return (event) => {
             setLogin({ ...login, [formField]: event.target.value });
-            setFormSubmitted(false);
+            if(formSubmitted) setFormSubmitted(false)
         }
     }
     return (
