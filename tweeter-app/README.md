@@ -1,6 +1,10 @@
 
-## Getting Started
 
+## About
+The create-react-app hosted on node but without the vulnerabilities and gimmicks.
+
+
+## Getting Started
 1. Install dependencies using the `npm install` command.
 2. Start the web server using the `npm run start` command. The app will be served at <http://localhost:8080/>.
 
