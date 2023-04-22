@@ -1,1 +1,1 @@
-![](https://github.com/pauline-shen/scheduler/blob/master/docs/page.png?raw=true)
+![alt text](https://github.com/garengh4/frontendWorkspace/blob/main/bootstrapPractice/requirements/indexhtmllayout.png?raw=true)
