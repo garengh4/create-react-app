@@ -14,6 +14,6 @@
 
 # Result
 <p align="center">
-  <img src="/bootstrapPractice/index.html">
+  <a src="/bootstrapPractice/index.html"> HERE</a>
 
 </p>
