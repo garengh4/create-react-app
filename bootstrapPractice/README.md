@@ -1,4 +1,9 @@
-# Requirement
+
+# About
+This is testing bootstrap and its syntax. The bootstrapPractice/js files are to run in conjunction with `live-serve` extension.
+
+
+# Design Layout
 
 <p align="center">
   <img src="/bootstrapPractice/requirements/indexhtmllayout.png">
@@ -13,7 +18,3 @@
 </p>
 
 # Result
-<p align="center">
-  <a src="/bootstrapPractice/index.html"> HERE</a>
-
-</p>
