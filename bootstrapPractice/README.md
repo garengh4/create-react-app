@@ -5,7 +5,9 @@ This is testing bootstrap and its syntax. The bootstrapPractice/js files are to 
 ## Issues
 - How to deploy to cloud?
 
-## Design Layout
+-------------------------------------------------------------------------------------------------
+
+# Design Layout
 <p align="center">
   <img src="/bootstrapPractice/requirements/indexhtmllayout.png">
   <p>
