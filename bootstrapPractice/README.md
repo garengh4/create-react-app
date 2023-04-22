@@ -9,5 +9,5 @@
   <p align="center">
   <img src="/bootstrapPractice/requirements/smallscreen.gif">
 
-  ## Result
+  ### Result
 </p>
