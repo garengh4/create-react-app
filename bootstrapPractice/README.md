@@ -4,9 +4,9 @@
   <img src="/bootstrapPractice/requirements/layoutwithborder.png">
   <p>
   <img src="/bootstrapPractice/requirements/mainpagelarge.png">
-  <p>
+  <p align="center">
   <img src="/bootstrapPractice/requirements/mainpagemedium.jpeg">
-  <p>
+  <p align="center">
   <img src="/bootstrapPractice/requirements/smallscreen.gif">
 
   ## Result
