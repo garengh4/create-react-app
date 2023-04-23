@@ -15,7 +15,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - npm install axios
 - npm install bcryptjs
 - how to deploy backend db to cloud?
-- extract and remove react-app folder?
 
 ## Available Scripts
 
