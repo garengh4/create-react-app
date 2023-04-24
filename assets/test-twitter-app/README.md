@@ -1,7 +1,7 @@
 
 
 ## About
-The create-react-app hosted on node but without the vulnerabilities and gimmicks.
+The create-react-app hosted on outlines react architecture but without the vulnerabilities and the gimmicks. It uses node.
 
 
 ## Getting Started
