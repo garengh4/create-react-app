@@ -453,3 +453,30 @@ One major functionality left still => programmatic navigation => `useNavigate()`
 We never practiced accessing parameters from URL path:
 - let's create path "/viewDefects/:id" that displays a new Component `<ViewSingleDefect defect={passedDefect} />`
 - inside this new component => fetch that sinlge component from the backend API using GET /defects/id
+
+2 Types of STATE tthat we have been seeing in our components:
+- state that exclusively belongs inside the component and used in display within thte component only; never shared outside, never shared with any other component. Also, there is little chance that such state will be shared later with any other component.
+  - in viewDefects => category and priority to be used to filter
+  - in addDefect > the newDefect
+- State that is very likely to be shared among multiple components of the App => e.g. loggedInUser
+  - List of all Defects, or a specific defect with a specific id.
+
+STATE that various components may need to share => APP STATE and should be CENTRALIZED and available to all components. STATE that is limited to a single component and specifically used to control its display => We can contintue to use it thet way we have been.
+
+When we CENTRALIZE the App State, we reduce the need to pass state as props between components => easier to code and manage components. 
+
+CENTRALIZING APP STATE => Best Practice!
+
+After centralizing the app state => now multiple components can manipulate it => leads to another nightmare of state being changed at lots of places in lotst of different ways in lots of different components
+
+Now need to CENTRALIZE HOW THE CENTRALIZED APP STATE CAN BE CHANGED
+
+Reframe: Not just the APP STATE needs to be CENTRALIZED, but the WAYS to CHANGE THE APP STATE also needs to be CENTRALIZED => leads us to the REDUX/FLUX architecture
+- APP STATE is stored in an CENTRAL OBJECT called "store"
+- Only the REDUCERS/SINGLE-COMBO-REDUCER in the store can CHANGE the APP STATE
+- How to tell/call/compel the reducer to change state => dispatch "actiion" objects to the reducer/store
+
+Now we have:
+- store that stores APP STATE
+- Reducer that can: Accept actions, update state
+- Our components JUST DISPATCH ACTIONS and invoke the reducers; Our componentts do not/cannot update APP STATE directly.
