@@ -44,7 +44,7 @@ to surround any html code with an element:
 
 **Responsive Web Design**
 - depending on the width of the screen, our LAYOUT can change
-- bootstrap allows to code for different screenwidtth
+- bootstrap allows to code for different screenwidth
 - if we want a property to apply to specific screen widths, names are: `sm` for small, `md` for medium, `lg` for large, `xl` for extra-large, `xxl` for extra-extra-large
 - example class: `col-md-4` => apply the col width property to ALL SCREEN LARGER or EQUAL to MEDIUM SCREEN WIDTH
 - Rules:
@@ -98,7 +98,7 @@ to surround any html code with an element:
 ## Topic: JavaScript Concepts
 
 JS originally only ran in browsers
-- Everytime an html page was rendered in a window, the window has an instance of JS running; this executing JS instance could be asked to manipulate tthte DOM. DOM is an OP representation of the view that is rendered by the browser.
+- Everytime an html page was rendered in a window, the window has an instance of JS running; this executing JS instance could be asked to manipulate the DOM. DOM is an OP representation of the view that is rendered by the browser.
 - DOM has element tree => "inspect" any browser window
 - Every html element is like an object and each has properties/fields/instanceVars like "style", "id", "src", "rowspan".
 - DOM tree => elements inside elemtns nested to whatever level.
@@ -140,7 +140,7 @@ Node projects look for dependencies in `node_modules` folder, and then in parent
 
 Npm commands:
 - `npm install` or `npm i` => looks at a file called **package.json** (like pom file in Maven projects) in the current folder and downloads all dependencies in the node_modules folder
-- `npm install <dependencyName>` or `npm i <dependencyName>` installs thatt dependenct and also adds a line in the package.json for adding thtat dependency
+- `npm install <dependencyName>` or `npm i <dependencyName>` installs that dependenct and also adds a line in the package.json for adding thtat dependency
 - `npm i g <dependencyName>` => adding the `g` tag means instally globally, all projects will have access AND is installed somewhere else instead of `node_modules` => typically done for utitliyt programs `ng` or `create-react-app`.
 - lots of other commands => `npm start`, `npm build`, `npm init` (create a new project)
 
@@ -151,7 +151,7 @@ Npm commands:
 - arrow is equals followed by greater than symbols
 - no types of specified in JS
 - objects in JS are created as "key-value" pairs. Key are instance var names and values are the values of the inistance vars
-- pread operator to creatte copies of objects and arrays. Syntax is 3 dots followed by the arrayName/ObjectName => spread key-value pairs or arrayElements into wherever this spread op is used
+- pread operator to create copies of objects and arrays. Syntax is 3 dots followed by the arrayName/ObjectName => spread key-value pairs or arrayElements into wherever this spread op is used
    - using spread operator for objects can override fields. to remove any field, override its value to "null"
 - arrays/objects should be copied instead of modifying them due to immutability nature
 
@@ -202,7 +202,7 @@ Component => "reusuable, "encapsulated" representation of some UI portion
 
 Binding framework => binding is required a lot and doing it is grunt work => safer (less bugs), more efficient to automate.
 
-User Defined Component => reusable, encapsulated, representattion fo UI portion like an HTML tag with their properties
+User Defined Component => reusable, encapsulated, representation fo UI portion like an HTML tag with their properties
 
 Class Based Components => allowed instance vars to be manipulated by coder freely and this freedom caused code against best practices and introduced bug and slowness etc. => best not let the coder have that freedom to manipulate instance vars whatever way they like.
 
@@ -220,10 +220,10 @@ ReactDOM => OOP representation of UI view controlled by React (just like a brows
 **JSX**
 - syntax looks like HTML elements
 - property name `class` in HTML is called `className` because `class` is a keyword in JS
-- `{}` in JSX syntax are used to have JS code executte withtin it. `{}` evaluate to JS expression value as the JS code inside that is run. `{}` based interpolation can be nested as mch as needed
+- `{}` in JSX syntax are used to have JS code execute withtin it. `{}` evaluate to JS expression value as the JS code inside that is run. `{}` based interpolation can be nested as mch as needed
 - attribute names are camelCased
 - attach functions not function calls on the right hand side. don't include `()`
-- event object is always passed as the first argumentt to the eventHandler
+- event object is always passed as the first argument to the eventHandler
 - rules: JSX tags need to be closed. returned value from component has to be a single element. 
 
 **State**
@@ -241,10 +241,10 @@ react allows us to create state vaiables by using a hook into the React function
 - use the setter function to update state
 
 **Form**
-- typing in input: onchange listener can capture the latest value and stttore it in state var using the setter fn
+- typing in input: onchange listener can capture the latest value and store it in state var using the setter fn
 - always create new object when using the setter fuunction. using spread operator to get original key-value pairs ini the new object and then override just the username field
-- submit event cause browser to send info. Default browsers submit the form info to the currentt page itself
-- causes a browser based reload of the currentt page => everthing gets restarted including react state and components
+- submit event cause browser to send info. Default browsers submit the form info to the current page itself
+- causes a browser based reload of the current page => everthing gets restarted including react state and components
 - default behaviour can be prevented by `event.preventDefault()` 
 
 **Deconstructing Array and Object**
@@ -290,13 +290,13 @@ Assigning default values to props:
 ## Topic: useEffect, API Access with Axios, Routing
 
 The setter fns returned by useState => 2 ways:
-- If non-function is passed tot itt, it directly assigns that value to the state var
-- If function is passed to it, it uses that function to compute the sttatte (by passing the current state var value to) and then set it => this approach is safest if the new value depends in any way on the prev value of the state var.
+- If non-function is passed to it, it directly assigns that value to the state var
+- If function is passed to it, it uses that function to compute the state (by passing the current state var value to) and then set it => this approach is safest if the new value depends in any way on the prev value of the state var.
 
 **UseEffect**
 - all hooks begin witht "use" => indicate that React is providing that service => kind of like dependency injection from React into our component
 - all hooks can only be used at the top level in the component functions; cannot use them nested within other code blocks like if-then-else or for-loops or inner functions
-- There is exactly 1 type of inner function in which we can use these hooks => the function that is used to create custom hook => note that we can create our own hooks tthat may use 1 or more React's pre-existing hooks
+- There is exactly 1 type of inner function in which we can use these hooks => the function that is used to create custom hook => note that we can create our own hooks that may use 1 or more React's pre-existing hooks
 - we can have useEffects as many as we need
 
 Effect => side effects
@@ -352,7 +352,7 @@ useEffect for init and destroy is always separate from the one used onChange of 
 For hashed passwords, we need the bcryptjs library in our react app
 - `npm i bcryptjs`
 - useEffect for fetching users from API using Axios
-- onSubmit, check if hashed password entered by the user matches the hashed password from backend. If match => welcome thatt username, else incorrect credentials
+- onSubmit, check if hashed password entered by the user matches the hashed password from backend. If match => welcome that username, else incorrect credentials
 
 
 when to separate into 2 components versus do everything in 1 component. Rule: 'Strong cohesion and loose coupling' => within the same object/function the tasks done should be very closely related to each other. Across diffenrent object/functions, there should be as little dependency as possible.
@@ -374,7 +374,7 @@ Remember:
   - any props and any expressions using props when assigned to the local var
   - we already talked about state => any stateVars and any expressions using stateVars when assigned to the local var (using useState)
 - useRef is another way we remember values between renders, how is this diff than useState? Are these not state vars??
-  - BIG difference => if REF value changes, it does not force a re-render like a SETTER functitotn being called for a state var DOES
+  - BIG difference => if REF value changes, it does not force a re-render like a SETTER function being called for a state var DOES
   - Good example: most common use case is ref to a DOM element in our view
 - Syntax:
 
@@ -413,7 +413,7 @@ Objects from React-Router-Dom
 ```
 - Note that with the above markup, we don't need `<Outlet></ Outlet>` because the rendering happens wherever the "routes" 
 
-Routtet elements can be inside other Route elements
+Route elements can be inside other Route elements
 - urlPath of the outer Route is pre-pended with the urlPath of the inner Route to get the path for the display of the inner Route's component
 ```
 <Route path="/" element={<Header />} >
