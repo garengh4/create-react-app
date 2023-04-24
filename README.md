@@ -140,7 +140,7 @@ Node projects look for dependencies in `node_modules` folder, and then in parent
 
 Npm commands:
 - `npm install` or `npm i` => looks at a file called **package.json** (like pom file in Maven projects) in the current folder and downloads all dependencies in the node_modules folder
-- `npm install <dependencyName>` or `npm i <dependencyName>` installs that dependenct and also adds a line in the package.json for adding thtat dependency
+- `npm install <dependencyName>` or `npm i <dependencyName>` installs that dependenct and also adds a line in the package.json for adding that dependency
 - `npm i g <dependencyName>` => adding the `g` tag means instally globally, all projects will have access AND is installed somewhere else instead of `node_modules` => typically done for utitliyt programs `ng` or `create-react-app`.
 - lots of other commands => `npm start`, `npm build`, `npm init` (create a new project)
 
@@ -220,7 +220,7 @@ ReactDOM => OOP representation of UI view controlled by React (just like a brows
 **JSX**
 - syntax looks like HTML elements
 - property name `class` in HTML is called `className` because `class` is a keyword in JS
-- `{}` in JSX syntax are used to have JS code execute withtin it. `{}` evaluate to JS expression value as the JS code inside that is run. `{}` based interpolation can be nested as mch as needed
+- `{}` in JSX syntax are used to have JS code execute within it. `{}` evaluate to JS expression value as the JS code inside that is run. `{}` based interpolation can be nested as mch as needed
 - attribute names are camelCased
 - attach functions not function calls on the right hand side. don't include `()`
 - event object is always passed as the first argument to the eventHandler
@@ -235,7 +235,7 @@ react allows us to create state vaiables by using a hook into the React function
 - setter function returned by useState is the only way React allows auto biniding and re-rendering
 - React components will only render:
   - if either their parent is forced to re-render or the component is forced using code to re-render
-  - if a seetter function returned by useState is used to update thte state
+  - if a seetter function returned by useState is used to update the state
 - no limit to number of state variables.
 - types of state vars: array, object, number, boolean, strings
 - use the setter function to update state
@@ -294,7 +294,7 @@ The setter fns returned by useState => 2 ways:
 - If function is passed to it, it uses that function to compute the state (by passing the current state var value to) and then set it => this approach is safest if the new value depends in any way on the prev value of the state var.
 
 **UseEffect**
-- all hooks begin witht "use" => indicate that React is providing that service => kind of like dependency injection from React into our component
+- all hooks begin with "use" => indicate that React is providing that service => kind of like dependency injection from React into our component
 - all hooks can only be used at the top level in the component functions; cannot use them nested within other code blocks like if-then-else or for-loops or inner functions
 - There is exactly 1 type of inner function in which we can use these hooks => the function that is used to create custom hook => note that we can create our own hooks that may use 1 or more React's pre-existing hooks
 - we can have useEffects as many as we need
@@ -402,8 +402,8 @@ Implications:
 
 Objects from React-Router-Dom
 - BrowserRouter component => utility components adds the router functionality; our components that need router functionality should be wrapped somehwere inside this component as children; usage pattern is similar to other utility components like => `React.StrictMode`
-- Inside thte BrowserRouter, we can have the "Routes" component (utility component => not really displayed but allows the inside Routte components to be displayed)
-- "Route" components inside "Routes" are either displayed or not depending on whether the route matches thte URL path.
+- Inside the BrowserRouter, we can have the "Routes" component (utility component => not really displayed but allows the inside Routte components to be displayed)
+- "Route" components inside "Routes" are either displayed or not depending on whether the route matches the URL path.
 ```
 <Routes>
   <Route path="/" element={<Home />} />
@@ -438,7 +438,7 @@ export const Header = () => {
 Reminder: absolute paths begin with `/`. Relative paths do not.
 
 Route Parameters are like we have parameters in backend API urls.
-In JS, unlike Springboot, thte URL params are noted with colon ":authorId" indead of "{authorId}"
+In JS, unlike Springboot, the URL params are noted with colon ":authorId" indead of "{authorId}"
 
 In the URL paths, "*" indicates wild card matching => any text is allowed. "**" usually mean wildcard matchin gincluding multiple "/" in the URL path allowed. ":paramName" => any text is allowed there BUT the value used in path will be available in a param with name of "paramName"
 
@@ -447,4 +447,9 @@ How to acess URL params? Use HOOKS => like dependency injection => hooking into 
 - `params.someNumber` contains the value in the urlPath that matched this parameter
 
 One major functionality left still => programmatic navigation => `useNavigate()`
-- `let navigate`
+- `let navigate = useNavigate();`
+- `navigate('pathToNavigateTo');`
+
+We never practiced accessing parameters from URL path:
+- let's create path "/viewDefects/:id" that displays a new Component `<ViewSingleDefect defect={passedDefect} />`
+- inside this new component => fetch that sinlge component from the backend API using GET /defects/id
