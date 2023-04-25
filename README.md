@@ -454,7 +454,7 @@ We never practiced accessing parameters from URL path:
 - let's create path "/viewDefects/:id" that displays a new Component `<ViewSingleDefect defect={passedDefect} />`
 - inside this new component => fetch that sinlge component from the backend API using GET /defects/id
 
-2 Types of STATE tthat we have been seeing in our components:
+2 Types of STATE that we have been seeing in our components:
 - state that exclusively belongs inside the component and used in display within thte component only; never shared outside, never shared with any other component. Also, there is little chance that such state will be shared later with any other component.
   - in viewDefects => category and priority to be used to filter
   - in addDefect > the newDefect
@@ -479,4 +479,86 @@ Reframe: Not just the APP STATE needs to be CENTRALIZED, but the WAYS to CHANGE 
 Now we have:
 - store that stores APP STATE
 - Reducer that can: Accept actions, update state
-- Our components JUST DISPATCH ACTIONS and invoke the reducers; Our componentts do not/cannot update APP STATE directly.
+- Our components JUST DISPATCH ACTIONS and invoke the reducers; Our components do not/cannot update APP STATE directly.
+
+## Topic: Redux
+
+React is used with React and with other frontend frameworks as well => App State management approach/architecture
+- new react veresions ACTUALLY HAVE IT INBUILT WITH REACT ITSELF => with concept called "CONTEXT" and reducers; do not haev to use any external libraries for using the redux architecture
+
+Components use 3 types of state in their display and interactivity with the user:
+- internal component state that is never shared outside and used to handle view and view interactions => we have been using this and will continue to use it the same way as always
+- State that MIGHT be shared across different components and may need to be passed between various components and generally belongs to the ENTIRE app logically
+  - Any data fetched from APIs
+  - Any error or success CODES or RESULTS from API access
+  - Any data that several components use like "loggedInUser"
+
+We have so far been using STATE that BELONGS to the ENTIRE app, within individual components - kinda like internal state - and then sharing them across components => remember we shared the loggedInUser UP to the parent component yesterday
+
+Best Practices => SEPARATION OF CONCERNS => one object/OneMethod should be responsible for 1 maiin responsibility and different responsibilities should be spread across different objects methods.
+
+REDUX (word comes from Reducers) architecture atempts:
+- Single responsibility for objects: 
+  - components only manage "view state" and user interactions FIRE OFF actions that someone else takes care of
+  - All side effects like API access, logging etc. should be EXTRACTED out of components - usually done in something called a middleware
+  - A "store" has the single responsibility of maintaining the APP STATE; it has reducer that uses ACTION and gives us the next value of APP STATE: 
+    - stores receive "actions", they have a "reducer" function that uses "currentState" and the "action" and produces the "nextState"
+    - Whenever "state" is updated like above, components that are listening will get the updated state and MAY UPDATE their views
+- One Directional Data Flow: 
+  - Components received updated APP STATE and make view changes as needed; they do not directly try to update APP state. Component will fire off "actions"; the actions will in turn update the APP STATE through reducers => thus complete a circle of data flow
+
+What kind of Objects are important in redux?
+
+**Store**
+- has a "reducer" function
+  - Reminder we learnt about reducers => `myarr.reduce(reducerFunction, initialAccumulatedValue)`
+  - `reducerFunction` takes 2 arguments: `(cuurrentAccumulatedValue, nextValue)` and returns the `nextAccumulatedValue`
+- Stores the whole app state object
+- accepts "action" objects and runs the reducer function to compute the next value of the App State
+    - action object look like: `{ type: 'anyStringValue', anyOtherExtraInfo }`
+    - action objects => the only requirement is that they have the "type" field; in later versions, action objects can look like whatever
+
+**Components**
+- Subcribe to App State updates from the store => whenever the state changes, they devide whether to update their view as needed
+- On user interaction, or on Timeouts, components SEND action objects to the store => called dispatch
+  - Components will call the `store.dispatch(someAction)`
+  - Components are usually subcribed to state updates from the store => they get notified when state changes; This will be automated for us using "react-redux" library
+  - Once components get state update notification, they run `store.getState()` and update their local copies of the app state; thtis ia again automated using react-redux library. The call to `store.getState()` is also automated for us
+  - Whenever the local copy if the app state gets updated, components will change their view as designed
+
+**Middleare**
+- get attached around a store for doing side effects:
+- run reducer functions => Pure functions => no side effects => currentState, nextAction leads to nextState; no side effects
+- Middlewares will do API calls and loggin etc. and then send actions to the STORE and pure function reducers do their job
+
+As coder of apps:
+- we design how the actions look
+- we design how the app state looks
+- we design how the reducer function computes the next state using current state and thte action passed to it
+
+Reminder of our Defect Tracker App: lets decide what the APP STATE should look like
+
+App State is a SINGLE sometimes large object: what fields should it have? Remember, all data fetched by API, info about success or failure of last API call, loggedIn User etc.
+
+What actions might we need that may cause state changes? Decide separately for each field and then may consolidate if needed:
+- loggedInUser (What can cause it to change)
+  - `{ type: 'loginSuccess', loggedInUser:{...} }`
+  - `{ type: 'logout' }`
+  - `{ type: 'loginAttemptFailure', usernameAttempted:'' }` : Does this change the loggedInUser object?
+    - what if there was already a successful loggedInUser and we attempted login again somehow? Should we FORCE RESET the loggedInUser
+    - should we change the error or success message somehow? should we have a separate error message for login functionality? SEPARATE error message seems better, because the other messages are for defects API calls; WE REDESIGN THE STATE.
+  
+- State
+  ```
+  {
+    login: {
+      loggedInUser: {},
+      errorMessage: ''
+    },
+    defects: {
+      defects: [],
+      successMessage: '',
+      errorMessage: ''
+    }
+  }
+  ```
