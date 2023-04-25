@@ -627,6 +627,27 @@ handleFormSubmit => was callnig API, but change it to dispatch actions (no updat
 
 NOTICE:
 - components are not doing anything besides View Updates based on STATE from the APPSTATE/store and dispatching actions: components are thinner and SINGLE RESPONSIBILTY
-- All the state uupdatte work is done by reducers in the store
+- All the state update work is done by reducers in the store
 
 Middlewares
+
+COMPONENTS => only wantt to dispatch actions
+STORE => only wants pure action object that can be fed to reducers and get the next state
+
+Before the store gets the pure action object including the data fetched from API, somebody has to fetch the API.
+
+Middleware are functions that SIT between components and store's reducers; rather middleware SURROUND the store object
+- they modiify tthe dispatch function and give us a new dispatch function
+- the may modify the getState function of the store as well by doing side effects like logging and THEN providing the state
+REMINDER => a store has 3 methods `{getState, dispatch, subscribe};` middleware DECORATE the getState and dispatch functions
+
+MOST COMMONLY USED MIDDLEWARE => ALLOWS US TO RUN ANY CUSTOM CODE before dispatching tto actual store => called "thunk" (stands for "block of code") => available in "redux-thunk" library
+
+How to add a middleware to our store?
+- `createStore(ourReducer, applyMiddleware([array of all middlewares to apply to store in order]));`
+
+with this middleware;
+- if we dispatch a NON-FUNCTION action, it transparently goes to tthe nextt middleware or the actual store's dispatch method
+- if we dispatch a FUNCTION action, thten it runs that function inside that function it dispatches the "pure" actions to the next middleware or the actual store. e.g.
+```
+```

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { defectsActions } from "../actions/defectsActions";
+import { callAddDefectAPI, defectsActions } from "../actions/defectsActions";
 
 export function AddDefect() {
 
@@ -32,7 +32,8 @@ export function AddDefect() {
     const handleSubmit = (event) => {
         event.preventDefault();
         let currentDefects = defectsInfo.defects;
-        dispatch(defectsAction('updateDEfects', 'Added Successfully', '', [...currentDefects, newDefect]))
+        dispatch(callAddDefectAPI(newDefect, currentDefects));
+        // dispatch(defectsAction('updateDEfects', 'Added Successfully', '', [...currentDefects, newDefect]))
         // setErrorMessage('');
         // setSuccessMessage('');
         // axios.post("http://localhost:5000/defects", newDefect)
