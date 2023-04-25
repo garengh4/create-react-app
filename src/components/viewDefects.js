@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ViewDefectsRow } from "./viewDefectsRow";
 import axios from 'axios'
 import { useDispatch, useSelector } from "react-redux";
+import { callViewDefectsAPI } from "../actions/defectsActions";
 
 export function ViewDefects() {
 
@@ -20,12 +21,13 @@ export function ViewDefects() {
         .filter(x => category === 'All' ? true : x.category === category)
         .filter(x => priority === 'All' ? true : x.priority == priority);
 
-    // useEffect(() => {
+     useEffect(() => {
+        dispatch(callViewDefectsAPI);
     //     // axios.get('https://workflix-backend-42.azurewebsites.net/defect-api')
     //     axios.get('http://localhost:5000/defects')
     //         .then(response => setDefects(response.data))
     //         .catch(error => setErrorMessage("Unable to fetch defects at src/components/viewDefects.js"))
-    // }, []);
+     }, []);
 
     
     return (

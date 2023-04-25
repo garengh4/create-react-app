@@ -580,7 +580,7 @@ Retry the actions:
 
 
 How should reducers look like? 
-- NOTE: we can use multiple reduvers and each reducer may be work on only specific portion of the state. e.g. userReducer => works on the userInfo; defectsReducer => works on the defectsInfo
+- NOTE: we can use multiple reducers and each reducer may be work on only specific portion of the state. e.g. userReducer => works on the userInfo; defectsReducer => works on the defectsInfo
 
 Reminder: reducers takes 2 args => (currentState, nextAction); and return => nextState
 
@@ -606,14 +606,22 @@ We have the FULL REDUCER and the reducers internally have info on the INITIAL ST
 
 How do we create a store?
 `export let appStore = createStore(appReducer);`
-- we have the store created
+- we have the store created; it has reducers inside; has initial state inside, and the reducers know WHAT TO DO WHEN specific "actions" are dispatched
+
+How about components having access to `store.getState()` and `store.dispatch(someActtion)` mettthods?
+- a utility component called "Provider" from tthe 'react-redux' library helps us; we have to surround out componenttst with this utility component
+
+In react project, do:
+- `npm i redux`
+- `npm i react-redux`
+- `npm i redux-thunk`
 
 Next we need to Provide the store to our components so they can listen to STATE CHANGES and update accordingly and also DISPATCH ACTIONS:
 - the dispatch method is available on the store
 
-React-redux library provides a component called >>>>>>>>>>>
+React-redux library provides a component called "Provider" => let us surround our app with this component so ALL OF OUR COMPONENTS CAN ACCESS THE STORE
 
-How to access the store's STATE and DISPATCH FUNCTION from our components. Our components need to dispatch actions and copy some state from App State.
+Next, we show to access the store's STATE and DISPATCH FUNCTION from our components. Our components need to dispatch actions and copy some state from App State.
 
 Easiest way is to use HOOKS available for each:
 - `let dispatch = useDispatch();`
@@ -629,9 +637,9 @@ NOTICE:
 - components are not doing anything besides View Updates based on STATE from the APPSTATE/store and dispatching actions: components are thinner and SINGLE RESPONSIBILTY
 - All the state update work is done by reducers in the store
 
-Middlewares
+**Middlewares to do Side Effects**
 
-COMPONENTS => only wantt to dispatch actions
+COMPONENTS => only want to dispatch actions
 STORE => only wants pure action object that can be fed to reducers and get the next state
 
 Before the store gets the pure action object including the data fetched from API, somebody has to fetch the API.
@@ -648,6 +656,4 @@ How to add a middleware to our store?
 
 with this middleware;
 - if we dispatch a NON-FUNCTION action, it transparently goes to tthe nextt middleware or the actual store's dispatch method
-- if we dispatch a FUNCTION action, thten it runs that function inside that function it dispatches the "pure" actions to the next middleware or the actual store. e.g.
-```
-```
+- if we dispatch a FUNCTION action, thten it runs that function inside that function it dispatches the "pure" actions to the next middleware or the actual store. 
