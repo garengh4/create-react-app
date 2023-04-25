@@ -4,8 +4,6 @@ import axios from 'axios'
 export function ViewDefectsRow({ defect = {}, onUpdateDefect, onUpdateError, children = "" }) {
 
     const closeDefect = () => {
-        // let updatedDefects = defectsActions.map(origDefect => origDefect.id === defect.id ? {...defect, status:'closed'} : origDefect);
-        // dispatch(defectsAction('updateDefects', '', '', updatedDefects));
         onUpdateError('')
         axios.put("http://localhost:5000/defects/" + defect.id, { ...defect, status: 'closed' })
             .then(response => { onUpdateDefect(response.data) })

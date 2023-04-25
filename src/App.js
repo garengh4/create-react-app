@@ -12,8 +12,6 @@ import { AddDefect } from './components/addDefect';
 import { Container } from './components/container';
 import { DefectsContainer } from './components/defectsContainer';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { defectsAppStore } from './store/defectsAppStore';
 
 
 function App() {
@@ -28,10 +26,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Provider store={defectsAppStore}>
-        <DefectsContainer />
-        {/* <DefectsContainer /> */}
-      </Provider>
+      <Container />
+      {/* <DefectsContainer /> */}
     </BrowserRouter>
   );
 }

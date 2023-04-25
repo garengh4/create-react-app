@@ -1,18 +1,10 @@
 import { useState } from "react"
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { callAddDefectAPI, defectsActions } from "../actions/defectsActions";
 
 export function AddDefect() {
 
-    let dispatch = useDispatch();
-    let defectsInfo = useSelector(state => state.defectsInfo);
-
-    // let [errorMessage, setErrorMessage] = useState('')
-    // let [successMessage, setSuccessMessage] = useState('')
-
-    let errorMessage = defectsInfo.errorMessage;
-    let successMessage = defectsInfo.successMessage;
+    let [errorMessage, setErrorMessage] = useState('')
+    let [successMessage, setSuccessMessage] = useState('')
 
     let [newDefect, setNewDefect] = useState({
         id: null,
@@ -31,14 +23,11 @@ export function AddDefect() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        let currentDefects = defectsInfo.defects;
-        dispatch(callAddDefectAPI(newDefect, currentDefects));
-        // dispatch(defectsAction('updateDEfects', 'Added Successfully', '', [...currentDefects, newDefect]))
-        // setErrorMessage('');
-        // setSuccessMessage('');
-        // axios.post("http://localhost:5000/defects", newDefect)
-        //     .then(response => setSuccessMessage("Defect added successfully."))
-        //     .catch(error => setErrorMessage("Unable to add Defect: error in src/components/addDefects.js"))
+        setErrorMessage('');
+        setSuccessMessage('');
+        axios.post("http://localhost:5000/defects", newDefect)
+            .then(response => setSuccessMessage("Defect added successfully."))
+            .catch(error => setErrorMessage("Unable to add Defect: error in src/components/addDefects.js"))
     }
 
 
