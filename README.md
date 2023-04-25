@@ -44,7 +44,7 @@ to surround any html code with an element:
 
 **Responsive Web Design**
 - depending on the width of the screen, our LAYOUT can change
-- bootstrap allows to code for different screenwidtth
+- bootstrap allows to code for different screenwidth
 - if we want a property to apply to specific screen widths, names are: `sm` for small, `md` for medium, `lg` for large, `xl` for extra-large, `xxl` for extra-extra-large
 - example class: `col-md-4` => apply the col width property to ALL SCREEN LARGER or EQUAL to MEDIUM SCREEN WIDTH
 - Rules:
@@ -98,7 +98,7 @@ to surround any html code with an element:
 ## Topic: JavaScript Concepts
 
 JS originally only ran in browsers
-- Everytime an html page was rendered in a window, the window has an instance of JS running; this executing JS instance could be asked to manipulate tthte DOM. DOM is an OP representation of the view that is rendered by the browser.
+- Everytime an html page was rendered in a window, the window has an instance of JS running; this executing JS instance could be asked to manipulate the DOM. DOM is an OP representation of the view that is rendered by the browser.
 - DOM has element tree => "inspect" any browser window
 - Every html element is like an object and each has properties/fields/instanceVars like "style", "id", "src", "rowspan".
 - DOM tree => elements inside elemtns nested to whatever level.
@@ -140,7 +140,7 @@ Node projects look for dependencies in `node_modules` folder, and then in parent
 
 Npm commands:
 - `npm install` or `npm i` => looks at a file called **package.json** (like pom file in Maven projects) in the current folder and downloads all dependencies in the node_modules folder
-- `npm install <dependencyName>` or `npm i <dependencyName>` installs thatt dependenct and also adds a line in the package.json for adding thtat dependency
+- `npm install <dependencyName>` or `npm i <dependencyName>` installs that dependenct and also adds a line in the package.json for adding that dependency
 - `npm i g <dependencyName>` => adding the `g` tag means instally globally, all projects will have access AND is installed somewhere else instead of `node_modules` => typically done for utitliyt programs `ng` or `create-react-app`.
 - lots of other commands => `npm start`, `npm build`, `npm init` (create a new project)
 
@@ -150,8 +150,8 @@ Npm commands:
 - Arrow function in JS looks like labmda in Java
 - arrow is equals followed by greater than symbols
 - no types of specified in JS
-- objects in JS are created as "key-value" pairs. Key are iinstance var names and values are the values of the inistance vars
-- pread operator to creatte copies of objects and arrays. Syntax is 3 dots followed by the arrayName/ObjectName => spread key-value pairs or arrayElements into wherever this spread op is used
+- objects in JS are created as "key-value" pairs. Key are instance var names and values are the values of the inistance vars
+- pread operator to create copies of objects and arrays. Syntax is 3 dots followed by the arrayName/ObjectName => spread key-value pairs or arrayElements into wherever this spread op is used
    - using spread operator for objects can override fields. to remove any field, override its value to "null"
 - arrays/objects should be copied instead of modifying them due to immutability nature
 
@@ -202,7 +202,7 @@ Component => "reusuable, "encapsulated" representation of some UI portion
 
 Binding framework => binding is required a lot and doing it is grunt work => safer (less bugs), more efficient to automate.
 
-User Defined Component => reusable, encapsulated, representattion fo UI portion like an HTML tag with their properties
+User Defined Component => reusable, encapsulated, representation fo UI portion like an HTML tag with their properties
 
 Class Based Components => allowed instance vars to be manipulated by coder freely and this freedom caused code against best practices and introduced bug and slowness etc. => best not let the coder have that freedom to manipulate instance vars whatever way they like.
 
@@ -220,10 +220,10 @@ ReactDOM => OOP representation of UI view controlled by React (just like a brows
 **JSX**
 - syntax looks like HTML elements
 - property name `class` in HTML is called `className` because `class` is a keyword in JS
-- `{}` in JSX syntax are used to have JS code executte withtin it. `{}` evaluate to JS expression value as the JS code inside that is run. `{}` based interpolation can be nested as mch as needed
+- `{}` in JSX syntax are used to have JS code execute within it. `{}` evaluate to JS expression value as the JS code inside that is run. `{}` based interpolation can be nested as mch as needed
 - attribute names are camelCased
 - attach functions not function calls on the right hand side. don't include `()`
-- event object is always passed as the first argumentt to the eventHandler
+- event object is always passed as the first argument to the eventHandler
 - rules: JSX tags need to be closed. returned value from component has to be a single element. 
 
 **State**
@@ -234,17 +234,17 @@ react allows us to create state vaiables by using a hook into the React function
   - 2nd is a setter function to update values of that state var; react updates the var and rerenders => Binding
 - setter function returned by useState is the only way React allows auto biniding and re-rendering
 - React components will only render:
-  - if either theiir parent is forced to re-render or the component is forced using code to re-render
-  - if a seetter function returned by useState is used to update thte state
+  - if either their parent is forced to re-render or the component is forced using code to re-render
+  - if a seetter function returned by useState is used to update the state
 - no limit to number of state variables.
 - types of state vars: array, object, number, boolean, strings
 - use the setter function to update state
 
 **Form**
-- typing in input: onchange listener can capture the latest value and stttore it in state var using the setter fn
+- typing in input: onchange listener can capture the latest value and store it in state var using the setter fn
 - always create new object when using the setter fuunction. using spread operator to get original key-value pairs ini the new object and then override just the username field
-- submit event cause browser to send info. Default browsers submit the form info to the currentt page itself
-- causes a browser based reload of the currentt page => everthing gets restarted including react state and components
+- submit event cause browser to send info. Default browsers submit the form info to the current page itself
+- causes a browser based reload of the current page => everthing gets restarted including react state and components
 - default behaviour can be prevented by `event.preventDefault()` 
 
 **Deconstructing Array and Object**
@@ -257,11 +257,11 @@ shortcut available in JS to quickly access individual elements of an array or in
 
 React element arrays
 - when rendered need a property on them called "key" and it need to be unique for each element => this value is an identifier
-- reason key is needed: react uses positiion of elements in the tree to identify them and keep their state. So if element is deleted from array, next element takes the previous element position. 
+- reason key is needed: react uses position of elements in the tree to identify them and keep their state. So if element is deleted from array, next element takes the previous element position. 
 
 Passing argument to component:
 - we can access property whose value is assigned in this component => `argObject.<propertyName>`
-- all children of thiis component => `argObject.children`
+- all children of this component => `argObject.children`
 
 Properties should be immutable => never change once passed to the component
 
@@ -290,13 +290,13 @@ Assigning default values to props:
 ## Topic: useEffect, API Access with Axios, Routing
 
 The setter fns returned by useState => 2 ways:
-- If non-function is passed tot itt, it directly assigns that value to the state var
-- If function is passed to it, it uses that function to compute the sttatte (by passing the current state var value to) and then set it => this approach is safest if the new value depends in any way on the prev value of the state var.
+- If non-function is passed to it, it directly assigns that value to the state var
+- If function is passed to it, it uses that function to compute the state (by passing the current state var value to) and then set it => this approach is safest if the new value depends in any way on the prev value of the state var.
 
 **UseEffect**
-- all hooks begin witht "use" => indicate that React is providing that service => kind of like dependency injection from React into our component
+- all hooks begin with "use" => indicate that React is providing that service => kind of like dependency injection from React into our component
 - all hooks can only be used at the top level in the component functions; cannot use them nested within other code blocks like if-then-else or for-loops or inner functions
-- There is exactly 1 type of inner function in which we can use these hooks => the function that is used to create custom hook => note that we can create our own hooks tthat may use 1 or more React's pre-existing hooks
+- There is exactly 1 type of inner function in which we can use these hooks => the function that is used to create custom hook => note that we can create our own hooks that may use 1 or more React's pre-existing hooks
 - we can have useEffects as many as we need
 
 Effect => side effects
@@ -352,8 +352,131 @@ useEffect for init and destroy is always separate from the one used onChange of 
 For hashed passwords, we need the bcryptjs library in our react app
 - `npm i bcryptjs`
 - useEffect for fetching users from API using Axios
-- onSubmit, check if hashed password entered by the user matches the hashed password from backend. If match => welcome thatt username, else incorrect credentials
+- onSubmit, check if hashed password entered by the user matches the hashed password from backend. If match => welcome that username, else incorrect credentials
 
 
 when to separate into 2 components versus do everything in 1 component. Rule: 'Strong cohesion and loose coupling' => within the same object/function the tasks done should be very closely related to each other. Across diffenrent object/functions, there should be as little dependency as possible.
 
+
+## Topic: Routing, useRef
+
+**useRef**
+
+use ref => need to use a reference that is not lost across renderings of the component
+
+it is a React hook
+
+Remember:
+- any renderings of a Component => the whole component function is executed
+- All local variables in there are essentially re-generated => all objects that they were referring to, are no longer referred to by these vars unless we reassign
+- useState assigns the appropriate value to these local vars during every render (re-run oof the component function)
+- is there any other way that these vars get their original (related to the previous render) values back during re-render
+  - any props and any expressions using props when assigned to the local var
+  - we already talked about state => any stateVars and any expressions using stateVars when assigned to the local var (using useState)
+- useRef is another way we remember values between renders, how is this diff than useState? Are these not state vars??
+  - BIG difference => if REF value changes, it does not force a re-render like a SETTER function being called for a state var DOES
+  - Good example: most common use case is ref to a DOM element in our view
+- Syntax:
+
+  `let myRef = useRef(initialValue); // defined a ref`
+  `myRef.current // this is the latest/current value to the Ref`
+- How to create a REF on a DOM element? The ref should point to the DOM element example an input element in a form
+  - `<input ref={myRef}>`
+  Once the above marking is done, `myRef.current` will refer to the above input element in the DOM
+  - useful to access `myRef.current.value` to access any input/textarea/select field's values ANYWHERE in the component
+  - Note that `event.target.value` can only be used on the ELEMENT at which the even is happening. Can't use this outside that element anywhere else in the component
+  - NOTE: the way we will access VALUES of ELEMENTS outside that element => through model object that are bound to the elements
+
+**Routing**
+
+Routing functionality in a SINGLE PAGE APP like React or Angular
+- Making the JS display different VIEWS based on different URL paths without causing a full browser reload
+
+Implications:
+- The LINKS in our apps should not be normal html links that cause the browser to re-load pages; they should invoke JS.
+- The JS, if it follows the "JS enabled" links should be able to change the url path displayed in the browser url address bar. Not hard at all => `window.location.<something>` in JS to do this. some pre-existing libraries can do this.
+- Routing in React can be done through several differnet libraries; the most common one => `react-router-dom` is part of the syllabus
+- We need to CONFIG the mapping between URL path and component displayed. `<PlaceHolderElementName path="/some/path" component={someComponent} />`
+- There should be a location or element in the view where the different components for different paths are being rendered
+  - `<Outlet></ Outlet>` => where different component will be rendered for different paths (`<router-outlet>< / router-outlet>` in Angular)
+
+Objects from React-Router-Dom
+- BrowserRouter component => utility components adds the router functionality; our components that need router functionality should be wrapped somehwere inside this component as children; usage pattern is similar to other utility components like => `React.StrictMode`
+- Inside the BrowserRouter, we can have the "Routes" component (utility component => not really displayed but allows the inside Routte components to be displayed)
+- "Route" components inside "Routes" are either displayed or not depending on whether the route matches the URL path.
+```
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/home" element={<Home />} />
+  <Route path="/about" element={<About />} />
+</ Routes>
+```
+- Note that with the above markup, we don't need `<Outlet></ Outlet>` because the rendering happens wherever the "routes" 
+
+Route elements can be inside other Route elements
+- urlPath of the outer Route is pre-pended with the urlPath of the inner Route to get the path for the display of the inner Route's component
+```
+<Route path="/" element={<Header />} >
+  <Route path="home" element={<Home />} />
+  <Route path="about" element={<About />} />
+</ Route >
+```
+
+`/home` displays "home" element inside the "Header" element where the `<Outlet>` is marked => insdie the "Header" will need a "Outlet"
+
+`/` displays the "Header" and needs to decide what to display where the "Outlet" is => can leave it as empty or have a default element to display.
+
+```
+export const Header = () => {
+  return (<nav>
+    <Link to="home">Home</link> |
+    <Link to="about">About Us</link>
+    <Outlet />
+  </nav>)
+}
+```
+Reminder: absolute paths begin with `/`. Relative paths do not.
+
+Route Parameters are like we have parameters in backend API urls.
+In JS, unlike Springboot, the URL params are noted with colon ":authorId" indead of "{authorId}"
+
+In the URL paths, "*" indicates wild card matching => any text is allowed. "**" usually mean wildcard matchin gincluding multiple "/" in the URL path allowed. ":paramName" => any text is allowed there BUT the value used in path will be available in a param with name of "paramName"
+
+How to acess URL params? Use HOOKS => like dependency injection => hooking into some functionality provided by something external to our component. `react-router-dom` library provide functionality to extract these values for us
+- `let params = useParams();`
+- `params.someNumber` contains the value in the urlPath that matched this parameter
+
+One major functionality left still => programmatic navigation => `useNavigate()`
+- `let navigate = useNavigate();`
+- `navigate('pathToNavigateTo');`
+
+We never practiced accessing parameters from URL path:
+- let's create path "/viewDefects/:id" that displays a new Component `<ViewSingleDefect defect={passedDefect} />`
+- inside this new component => fetch that sinlge component from the backend API using GET /defects/id
+
+2 Types of STATE tthat we have been seeing in our components:
+- state that exclusively belongs inside the component and used in display within thte component only; never shared outside, never shared with any other component. Also, there is little chance that such state will be shared later with any other component.
+  - in viewDefects => category and priority to be used to filter
+  - in addDefect > the newDefect
+- State that is very likely to be shared among multiple components of the App => e.g. loggedInUser
+  - List of all Defects, or a specific defect with a specific id.
+
+STATE that various components may need to share => APP STATE and should be CENTRALIZED and available to all components. STATE that is limited to a single component and specifically used to control its display => We can contintue to use it thet way we have been.
+
+When we CENTRALIZE the App State, we reduce the need to pass state as props between components => easier to code and manage components. 
+
+CENTRALIZING APP STATE => Best Practice!
+
+After centralizing the app state => now multiple components can manipulate it => leads to another nightmare of state being changed at lots of places in lotst of different ways in lots of different components
+
+Now need to CENTRALIZE HOW THE CENTRALIZED APP STATE CAN BE CHANGED
+
+Reframe: Not just the APP STATE needs to be CENTRALIZED, but the WAYS to CHANGE THE APP STATE also needs to be CENTRALIZED => leads us to the REDUX/FLUX architecture
+- APP STATE is stored in an CENTRAL OBJECT called "store"
+- Only the REDUCERS/SINGLE-COMBO-REDUCER in the store can CHANGE the APP STATE
+- How to tell/call/compel the reducer to change state => dispatch "actiion" objects to the reducer/store
+
+Now we have:
+- store that stores APP STATE
+- Reducer that can: Accept actions, update state
+- Our components JUST DISPATCH ACTIONS and invoke the reducers; Our componentts do not/cannot update APP STATE directly.
