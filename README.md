@@ -607,3 +607,14 @@ We have the FULL REDUCER and the reducers internally have info on the INITIAL ST
 How do we create a store?
 `export let appStore = createStore(appReducer);`
 - we have the store created
+
+Next we need to Provide the store to our componentts so they can listen to STATE CHANGES and update accordingly and also DISPATCH ACTIONS:
+- the dispatch method is available on the store
+
+React-redux library provides a component called >>>>>>>>>>>
+
+How to access the store's STATE and DISPATCH FUNCTION from our components. Our components need to dispatch actions and copy some state from App State.
+
+Easiest way is to use HOOKS available for each:
+- `let dispatch = useDispatch();`
+- 
