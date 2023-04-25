@@ -251,7 +251,7 @@ react allows us to create state vaiables by using a hook into the React function
 
 shortcut available in JS to quickly access individual elements of an array or individual fields of an object
 - deconstructing object: key names have to match the var name and we can access those values quickly
-- deconstructing an object that is passed as an argument to a functioin => discuss with props
+- deconstructing an object that is passed as an argument to a function => discuss with props
 
 ## Topic: React Hooks, Props
 
@@ -455,7 +455,7 @@ We never practiced accessing parameters from URL path:
 - inside this new component => fetch that sinlge component from the backend API using GET /defects/id
 
 2 Types of STATE that we have been seeing in our components:
-- state that exclusively belongs inside the component and used in display within thte component only; never shared outside, never shared with any other component. Also, there is little chance that such state will be shared later with any other component.
+- state that exclusively belongs inside the component and used in display within the component only; never shared outside, never shared with any other component. Also, there is little chance that such state will be shared later with any other component.
   - in viewDefects => category and priority to be used to filter
   - in addDefect > the newDefect
 - State that is very likely to be shared among multiple components of the App => e.g. loggedInUser
@@ -474,7 +474,7 @@ Now need to CENTRALIZE HOW THE CENTRALIZED APP STATE CAN BE CHANGED
 Reframe: Not just the APP STATE needs to be CENTRALIZED, but the WAYS to CHANGE THE APP STATE also needs to be CENTRALIZED => leads us to the REDUX/FLUX architecture
 - APP STATE is stored in an CENTRAL OBJECT called "store"
 - Only the REDUCERS/SINGLE-COMBO-REDUCER in the store can CHANGE the APP STATE
-- How to tell/call/compel the reducer to change state => dispatch "actiion" objects to the reducer/store
+- How to tell/call/compel the reducer to change state => dispatch "action" objects to the reducer/store
 
 Now we have:
 - store that stores APP STATE
@@ -495,7 +495,7 @@ Components use 3 types of state in their display and interactivity with the user
 
 We have so far been using STATE that BELONGS to the ENTIRE app, within individual components - kinda like internal state - and then sharing them across components => remember we shared the loggedInUser UP to the parent component yesterday
 
-Best Practices => SEPARATION OF CONCERNS => one object/OneMethod should be responsible for 1 maiin responsibility and different responsibilities should be spread across different objects methods.
+Best Practices => SEPARATION OF CONCERNS => one object/OneMethod should be responsible for 1 main responsibility and different responsibilities should be spread across different objects methods.
 
 REDUX (word comes from Reducers) architecture atempts:
 - Single responsibility for objects: 
@@ -523,7 +523,7 @@ What kind of Objects are important in redux?
 - On user interaction, or on Timeouts, components SEND action objects to the store => called dispatch
   - Components will call the `store.dispatch(someAction)`
   - Components are usually subcribed to state updates from the store => they get notified when state changes; This will be automated for us using "react-redux" library
-  - Once components get state update notification, they run `store.getState()` and update their local copies of the app state; thtis ia again automated using react-redux library. The call to `store.getState()` is also automated for us
+  - Once components get state update notification, they run `store.getState()` and update their local copies of the app state; this ia again automated using react-redux library. The call to `store.getState()` is also automated for us
   - Whenever the local copy if the app state gets updated, components will change their view as designed
 
 **Middleare**
@@ -534,7 +534,7 @@ What kind of Objects are important in redux?
 As coder of apps:
 - we design how the actions look
 - we design how the app state looks
-- we design how the reducer function computes the next state using current state and thte action passed to it
+- we design how the reducer function computes the next state using current state and the action passed to it
 
 Reminder of our Defect Tracker App: lets decide what the APP STATE should look like
 
@@ -562,3 +562,48 @@ What actions might we need that may cause state changes? Decide separately for e
     }
   }
   ```
+
+Retry the actions:
+- userinfo
+  - `{ type: 'loginSuccess', loggedInUser:{...} }` => updates the loggedInUser object
+  - `{ type: 'logout' }` => resets the loggedInUser object, and reset the userInfo.errorMessage
+  - `{ type: 'loginAttemptFailure', usernameAttempted:'' }`  => resets the loggedInUser object AND updates the userInfo.errorMessage field
+    - if we do not reset userInfo.errorMessage, it will still be there if we go to another component and come back; also if we clicked on the login button, it will still keep showing until we reset it.
+  - `{ type: 'resetUserErrorMessage' }` => we should have this action separate ONLY if sometime we may dispatch just this action and no other actions for the userInfo state. WHEN => initializing the login component
+  - `{ type: 'resetLoggedInUser' }` => only thing it does is resets the loggedInUser
+- Defects
+  - `{ type: 'updatesDefects', updatedDefects: [...fetchedFromAPI] }` => updates the defectsInfo.defect array with updated values // happends after the API call for defects is successful
+    - Do we need another action to reset the defects to an empty array? Probably not since the same action with updatedDefects:[] can be used
+    - Does this action cause any changes to error or success messages of defectsInfo? PROBABLY YES to both, so the action needs those values as well; redesign this action: 
+    - `{ type: 'updatesDefects', updatedDefects: [...fetchedFromAPI], successMessage: '...', errorMessage: '...' }` **now this can be used for "close defect", "initial defect" fetches, even for "single defect fetch". Can we use it for "add defect" as well: YES**
+  - `{ type: 'updateDefectsMessages', updatedErrorMessage: '...whatever', updatedSuccessMessage: '...' }` => reducer updates both success and error messages as indicated.
+
+
+How should reducers look like? 
+- NOTE: we can use multiple reduvers and each reducer may be work on only specific portion of the state. e.g. userReducer => works on the userInfo; defectsReducer => works on the defectsInfo
+
+Reminder: reducers takes 2 args => (currentState, nextAction); and return => nextState
+
+Multiple reducers can all operate on the same action => However, usually the reducers are TRANSPARENT (the next state that they compute is the same as prev state) if they are not supposed to handle a specific field of the APP STATE; WE USE SWITCH CASE and the "default" option causes NO updates to the state usually.
+
+NOTE: the INITIAL STATE can actually be SPECIFIED in the REDUCER itself. In the FIRST ARG (currentState), assign a DEFAULT VALUE => that becomes the initial state. e.g.:
+```
+export function defectsReducer(currentState={ defects:[], successMessage:'', errorMessage:'' }, action) {
+  switch (action.type) {
+    case 'updateDefects': return {defects:action.updatedDefects, successMessage: action.successMessage, errorMessage: action.errorMessage};
+    case 'updateDefectsMessages': return {...currentState, errorMessage: action.updatedErrorMessage, successMessage: action.updatedSuccessMessage};
+    default: return currentState
+  }
+}
+
+// NOTE: IT IS ONLY ACTING ON THE "defectsInfo" portion of the state; we will create a combinedReducer and TELL that this reducer only operates on this portion of the state. Similarly we can create a userReducer.
+
+// Combining Reducers:
+let appReduver = combineReducers({userInfo: userReducer, defectsInfo: defectsReducer }); // we can combine as many reducers as we want
+```
+
+We have the FULL REDUCER and the reducers internally have info on the INITIAL STATE. Thus a reducer alone can be used to create a STORE object.
+
+How do we create a store?
+`export let appStore = createStore(appReducer);`
+- we have the store created
