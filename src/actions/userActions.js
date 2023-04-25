@@ -1,3 +1,3 @@
-export function userAction(type, data) {
+export function userActions(type, data) {
   return {type, ...data};
 }

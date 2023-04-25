@@ -29,7 +29,7 @@ function App() {
   return (
     <BrowserRouter>
       <Provider store={defectsAppStore}>
-        <Container />
+        <DefectsContainer />
         {/* <DefectsContainer /> */}
       </Provider>
     </BrowserRouter>

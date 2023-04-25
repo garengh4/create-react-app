@@ -1,24 +1,31 @@
 import { useEffect, useState } from "react";
 import { ViewDefectsRow } from "./viewDefectsRow";
 import axios from 'axios'
+import { useDispatch, useSelector } from "react-redux";
 
 export function ViewDefects() {
 
+    let defectsInfo = useSelector(state => state.defectsInfo);
+    let dispatch = useDispatch();
+
+    let defects = defectsInfo.defects;
+    let errorMessage = defectsInfo.errorMessage;
+
     let [category, setCategory] = useState('All');
     let [priority, setPriority] = useState('All');
-    let [defects, setDefects] = useState([]);
-    let [errorMessage, setErrorMessage] = useState('');
+    //let [defects, setDefects] = useState([]);
+    //let [errorMessage, setErrorMessage] = useState('');
 
     let defectsToDisplay = defects
         .filter(x => category === 'All' ? true : x.category === category)
         .filter(x => priority === 'All' ? true : x.priority == priority);
 
-    useEffect(() => {
-        // axios.get('https://workflix-backend-42.azurewebsites.net/defect-api')
-        axios.get('http://localhost:5000/defects')
-            .then(response => setDefects(response.data))
-            .catch(error => setErrorMessage("Unable to fetch defects at src/components/viewDefects.js"))
-    }, []);
+    // useEffect(() => {
+    //     // axios.get('https://workflix-backend-42.azurewebsites.net/defect-api')
+    //     axios.get('http://localhost:5000/defects')
+    //         .then(response => setDefects(response.data))
+    //         .catch(error => setErrorMessage("Unable to fetch defects at src/components/viewDefects.js"))
+    // }, []);
 
     
     return (

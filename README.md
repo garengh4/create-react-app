@@ -608,7 +608,7 @@ How do we create a store?
 `export let appStore = createStore(appReducer);`
 - we have the store created
 
-Next we need to Provide the store to our componentts so they can listen to STATE CHANGES and update accordingly and also DISPATCH ACTIONS:
+Next we need to Provide the store to our components so they can listen to STATE CHANGES and update accordingly and also DISPATCH ACTIONS:
 - the dispatch method is available on the store
 
 React-redux library provides a component called >>>>>>>>>>>
@@ -617,4 +617,16 @@ How to access the store's STATE and DISPATCH FUNCTION from our components. Our c
 
 Easiest way is to use HOOKS available for each:
 - `let dispatch = useDispatch();`
-- 
+- `let someLocalComponentState = useSelector(state => {return whatever portion of the app state we need to access}) // accessing state from the store`
+
+NOT ACCESSING API att thtis point since it is a side effect. We will learn how to attach to middleware later. Right now just dispatch action and store only wants to run reducer with actions.
+
+handleFormSubmit => was callnig API, but change it to dispatch actions (no updating state directly by the component)
+
+**NOTE: Dispatch function when called CAUSES thte store reducer to run with that action and  update the state.**
+
+NOTICE:
+- components are not doing anything besides View Updates based on STATE from the APPSTATE/store and dispatching actions: components are thinner and SINGLE RESPONSIBILTY
+- All the state uupdatte work is done by reducers in the store
+
+Middlewares
