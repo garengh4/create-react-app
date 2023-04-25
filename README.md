@@ -608,8 +608,8 @@ How do we create a store?
 `export let appStore = createStore(appReducer);`
 - we have the store created; it has reducers inside; has initial state inside, and the reducers know WHAT TO DO WHEN specific "actions" are dispatched
 
-How about components having access to `store.getState()` and `store.dispatch(someActtion)` mettthods?
-- a utility component called "Provider" from tthe 'react-redux' library helps us; we have to surround out componenttst with this utility component
+How about components having access to `store.getState()` and `store.dispatch(someAction)` methods?
+- a utility component called "Provider" from the 'react-redux' library helps us; we have to surround out components with this utility component
 
 In react project, do:
 - `npm i redux`
@@ -627,11 +627,11 @@ Easiest way is to use HOOKS available for each:
 - `let dispatch = useDispatch();`
 - `let someLocalComponentState = useSelector(state => {return whatever portion of the app state we need to access}) // accessing state from the store`
 
-NOT ACCESSING API att thtis point since it is a side effect. We will learn how to attach to middleware later. Right now just dispatch action and store only wants to run reducer with actions.
+NOT ACCESSING API at this point since it is a side effect. We will learn how to attach to middleware later. Right now just dispatch action and store only wants to run reducer with actions.
 
 handleFormSubmit => was callnig API, but change it to dispatch actions (no updating state directly by the component)
 
-**NOTE: Dispatch function when called CAUSES thte store reducer to run with that action and  update the state.**
+**NOTE: Dispatch function when called CAUSES the store reducer to run with that action and  update the state.**
 
 NOTICE:
 - components are not doing anything besides View Updates based on STATE from the APPSTATE/store and dispatching actions: components are thinner and SINGLE RESPONSIBILTY
@@ -645,15 +645,15 @@ STORE => only wants pure action object that can be fed to reducers and get the n
 Before the store gets the pure action object including the data fetched from API, somebody has to fetch the API.
 
 Middleware are functions that SIT between components and store's reducers; rather middleware SURROUND the store object
-- they modiify tthe dispatch function and give us a new dispatch function
+- they modify the dispatch function and give us a new dispatch function
 - the may modify the getState function of the store as well by doing side effects like logging and THEN providing the state
 REMINDER => a store has 3 methods `{getState, dispatch, subscribe};` middleware DECORATE the getState and dispatch functions
 
-MOST COMMONLY USED MIDDLEWARE => ALLOWS US TO RUN ANY CUSTOM CODE before dispatching tto actual store => called "thunk" (stands for "block of code") => available in "redux-thunk" library
+MOST COMMONLY USED MIDDLEWARE => ALLOWS US TO RUN ANY CUSTOM CODE before dispatching to actual store => called "thunk" (stands for "block of code") => available in "redux-thunk" library
 
 How to add a middleware to our store?
 - `createStore(ourReducer, applyMiddleware([array of all middlewares to apply to store in order]));`
 
 with this middleware;
-- if we dispatch a NON-FUNCTION action, it transparently goes to tthe nextt middleware or the actual store's dispatch method
-- if we dispatch a FUNCTION action, thten it runs that function inside that function it dispatches the "pure" actions to the next middleware or the actual store. 
+- if we dispatch a NON-FUNCTION action, it transparently goes to the next middleware or the actual store's dispatch method
+- if we dispatch a FUNCTION action, then it runs that function inside that function it dispatches the "pure" actions to the next middleware or the actual store. 
