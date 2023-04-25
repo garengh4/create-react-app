@@ -15,7 +15,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - npm install axios
 - npm install bcryptjs
 - how to deploy backend db to cloud?
-- name defects
+- viewDefects.js, viewDefectsRow.js, viewSingleDefect.js is disorganized
 
 ## Available Scripts
 

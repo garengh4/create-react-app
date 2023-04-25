@@ -14,7 +14,8 @@ export function ViewDefects() {
         .filter(x => priority === 'All' ? true : x.priority == priority);
 
     useEffect(() => {
-        axios.get('https://workflix-backend-42.azurewebsites.net/defect-api')
+        // axios.get('https://workflix-backend-42.azurewebsites.net/defect-api')
+        axios.get('http://localhost:5000/defects')
             .then(response => setDefects(response.data))
             .catch(error => setErrorMessage("Unable to fetch defects at src/components/viewDefects.js"))
     }, []);

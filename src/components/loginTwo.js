@@ -1,9 +1,20 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import bcrypt from "bcryptjs"
+import { useNavigate } from "react-router-dom";
 
-export function LoginTwo() {
+export function LoginTwo({ onLoginSuccess }) {
 
+    console.log(onLoginSuccess)
+    let navigate = useNavigate();
+
+    let [users, setUsers] = useState([]);
+    useEffect(() => {
+        axios.get("http://localhost:5000/users")
+            .then(response => setUsers(response.data))
+            .catch(error => { })
+    }, [])
+    
     let [login, setLogin] = useState({ username: "", password: "" });
     let [formSubmitted, setFormSubmitted] = useState(false);
     let [foundUser, setFoundUser] = useState(null);
@@ -17,7 +28,11 @@ export function LoginTwo() {
         if (user) {
             {/* TODO: How to move loginValidation to json and not bcrypt*/ }
             if (bcrypt.compareSync(login.password, user.password)) {
-                setFoundUser(true);
+                setFoundUser(user);
+                onLoginSuccess(user);
+                // navigate to another component
+                // run onLoginSuccess function and pass data to parent container
+                navigate('/viewDefects')
             }
 
         }
@@ -30,13 +45,7 @@ export function LoginTwo() {
         }
     }
 
-    // calls to backend
-    let [users, setUsers] = useState([])
-    useEffect(() => {
-        axios.get("http://localhost:5000/users")
-            .then(response => setUsers(response.data))
-            .catch(error => { })
-    }, [])
+
 
     return (
         <div className="container">

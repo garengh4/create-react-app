@@ -10,7 +10,6 @@ export function Container() {
     return (
         <div className="container border">
 
-            <BrowserRouter>
                 <nav className="bg-light text-center display-5">
                     <Link to="/loginTwo">LoginTwo</Link>
                     <Link to="/addDefect">Add Defects</Link>
@@ -26,7 +25,6 @@ export function Container() {
                     <Route path={"/login"} element={<Login />} />
 
                 </Routes>
-            </BrowserRouter>
         </div>
     )
 }
