@@ -8,7 +8,8 @@ import { Login } from './components/login';
 import { LoginTwo } from './components/loginTwo';
 
 import { ViewDefects } from './components/viewDefects';
-import { AddDefects } from './components/addDefects';
+import { AddDefect } from './components/addDefect';
+import { Container } from './components/container';
 
 function App() {
   let [counter, setCounter] = useState(0);
@@ -34,11 +35,13 @@ function App() {
       </header>
 
       {/* <div className="container mt-4"><Login /></div> */}
-      {/* <div className="container mt-4"><LoginTwo /></div>
+      <div className="container mt-4"><LoginTwo /></div>
 
-      <div className="container mt-4"><ViewDefects /></div> */}
+      <div className="container mt-4"><ViewDefects /></div>
 
-      <AddDefects />
+      <AddDefect />
+
+      <Container />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from "axios";
 
-export function AddDefects() {
+export function AddDefect() {
 
     let [errorMessage, setErrorMessage] = useState('')
     let [successMessage, setSuccessMessage] = useState('')
