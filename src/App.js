@@ -9,7 +9,6 @@ import { LoginTwo } from './components/loginTwo';
 
 import { ViewDefects } from './components/viewDefects';
 import { AddDefect } from './components/addDefect';
-import { Container } from './components/container';
 import { DefectsContainer } from './components/defectsContainer';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -26,8 +25,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Container />
-      {/* <DefectsContainer /> */}
+      <DefectsContainer />
     </BrowserRouter>
   );
 }
