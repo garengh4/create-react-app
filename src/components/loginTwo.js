@@ -5,7 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 export function LoginTwo({ onLoginSuccess }) {
 
+    console.log("===============================")
     console.log(onLoginSuccess)
+    console.log("===============================")
+
     let navigate = useNavigate();
 
     let [users, setUsers] = useState([]);

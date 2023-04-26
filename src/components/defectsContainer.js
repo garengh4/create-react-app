@@ -35,7 +35,7 @@ export function DefectsContainer() {
             </div>
             <Routes>
                 <Route path='/' element={<LoginTwo onLoginSuccess={captureLoggedInUser} />} />
-                <Route path='/login' element={<LoginTwo onLoginSuccess={captureLoggedInUser} />} />
+                <Route path='/loginTwo' element={<LoginTwo onLoginSuccess={captureLoggedInUser} />} />
                 <Route path='/viewDefects' element={<ViewDefects />} />
                 <Route path='/addDefect' element={<AddDefect />} />
                 <Route path='/stopWatch' element={<StopWatch />} />
