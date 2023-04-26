@@ -1,9 +1,13 @@
-https://react-shantanu-2.azurewebsites.net/
-## About
-- `npm run server`to deploy backend
-- `npm run start` to deploy frontend
-## Issues
 
+## About
+- live site at https://react-shantanu-2.azurewebsites.net
+- `npm run server`to deploy backend on `http://localhost:4000`
+- `npm run start` to deploy frontend on `http://locahost:3000`
+
+
+
+## Issues
+- While `src/components/login.js` checks equality directly in return-html, `src/components/loginTwo.js` uses bCrypt and is scrambled in `db/defects.json`
 ## Topic: React
 
 React components are expected to be Pure Functions and side effects are extracted out as much as possible

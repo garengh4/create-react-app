@@ -13,7 +13,7 @@ export function LoginTwo({ onLoginSuccess }) {
 
     let [users, setUsers] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:5000/users")
+        axios.get("http://localhost:4000/users")
             .then(response => setUsers(response.data))
             .catch(error => { })
     }, [])

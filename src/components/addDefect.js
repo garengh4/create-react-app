@@ -25,7 +25,7 @@ export function AddDefect() {
         event.preventDefault();
         setErrorMessage('');
         setSuccessMessage('');
-        axios.post("http://localhost:5000/defects", newDefect)
+        axios.post("http://localhost:4000/defects", newDefect)
             .then(response => setSuccessMessage("Defect added successfully."))
             .catch(error => setErrorMessage("Unable to add Defect: error in src/components/addDefects.js"))
     }

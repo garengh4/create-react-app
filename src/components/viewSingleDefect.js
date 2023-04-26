@@ -7,7 +7,7 @@ export function ViewSingleDefect() {
     let params = useParams();
 
     useEffect(() => {
-        axios.get("http://localhost:5000/defects/" + params.id)
+        axios.get("http://localhost:4000/defects/" + params.id)
             .then(response => {
                 setDefect(response.data);
             }).catch(err => {

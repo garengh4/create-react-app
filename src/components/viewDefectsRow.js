@@ -5,7 +5,7 @@ export function ViewDefectsRow({ defect = {}, onUpdateDefect, onUpdateError, chi
 
     const closeDefect = () => {
         onUpdateError('')
-        axios.put("http://localhost:5000/defects/" + defect.id, { ...defect, status: 'closed' })
+        axios.put("http://localhost:4000/defects/" + defect.id, { ...defect, status: 'closed' })
             .then(response => { onUpdateDefect(response.data) })
             .catch(error => onUpdateError('Unable to close defect. Error: src/components/viewDefectsRow.js'))
     }

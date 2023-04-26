@@ -6,7 +6,7 @@ export function Logout(){
     let navigate = useNavigate();
 
     useEffect(()=>{
-        navigate('/login')
+        navigate('/loginTwo')
     },[])
 
     return <div></div>;

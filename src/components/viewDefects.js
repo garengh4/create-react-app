@@ -15,7 +15,7 @@ export function ViewDefects() {
 
     useEffect(() => {
         // axios.get('https://workflix-backend-42.azurewebsites.net/defect-api')
-        axios.get('http://localhost:5000/defects')
+        axios.get('http://localhost:4000/defects')
             .then(response => setDefects(response.data))
             .catch(error => setErrorMessage("Unable to fetch defects at src/components/viewDefects.js"))
     }, []);
@@ -23,12 +23,6 @@ export function ViewDefects() {
     
     return (
         <div className="container border">
-            <h2 className="text-center mb-4">Defect Tracker</h2>
-            <p className="text-center mb-3">Logout</p>
-            <p className="text-center mb-3">
-                Add Defect &nbsp;&nbsp;
-                View Defects
-            </p>
             <div className="col-12 border text-center">
                 <h3>Filter Details</h3>
                 <div className="mb-4">
