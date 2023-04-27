@@ -2,8 +2,9 @@
 ## About
 - demo at https://react-shantanu-2.azurewebsites.net
 - `create-react-app <appName>` creates the starter code and installs all node_modules needed
-- `npm run start` to deploy frontend on `http://locahost:3000`
-- `npm run server` to deploy backend on `http://localhost:4000/users` and `http://localhost:4000/defects`
+- `npm run start` to deploy frontend on `http://locahost:5000`
+- `npm run server` to deploy backend on `http://localhost:4000/users` and `http://localhost:4000/defects` and `http://localhost:4000/todos`
+- login: tester, tester123. developer, developer123
 
 ## Issues
 - `npx create-react-app react-app` has 6 high severity vulnerabilities.
@@ -93,7 +94,7 @@
   - approach: send a function from outer component to inner component => using props `onChange`. inner component will run that function and pass some data to it as an argument and this way send data to outer component
   - although we should try avoid sending from inner to outer components, event handling is almost always sending data from inner to outer components => should avoid creating new events in our custom components and then sending data out.
 
-                                  `React.createElement('select', {}, "")` is the same as `<select></select>` in JSX
+    `React.createElement('select', {}, "")` is the same as `<select></select>` in JSX
 
 - Beside ternary operator, there are other ways to do if-then-else:
   - we can use if-then-else syntax of JS as long as it is not inside the JSX elements (within the curly brackets, it is not allowed to use for loops or if-then syntax)
