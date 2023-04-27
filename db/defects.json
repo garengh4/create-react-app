@@ -11,19 +11,57 @@
       "role": "tester"
     }
   ],
+  "todos": [
+    {
+      "id": 1,
+      "description": "sleep",
+      "status": "pending",
+      "username": "developer"
+    },
+    {
+      "id": 2,
+      "description": "eat",
+      "status": "pending",
+      "username": "tester"
+    },
+    {
+      "id": 3,
+      "description": "drink",
+      "status": "done",
+      "username": "developer"
+    },
+    {
+      "id": 4,
+      "description": "jump",
+      "status": "pending",
+      "username": "developer"
+    },
+    {
+      "id": 5,
+      "description": "slide",
+      "status": "done",
+      "username": "tester"
+    },
+    {
+      "id": 6,
+      "description": "abc",
+      "status": "pending",
+      "username": "tester"
+    }
+  ],
   "defects": [
     {
       "id": 1,
       "category": "UI",
       "priority": 2,
-      "status": "open",
+      "status": "closed",
       "description": "Submit button coming to extreme left; see screenshots"
     },
     {
       "id": 2,
       "category": "Functional",
       "priority": 1,
-      "status": "open",
+      "status": "closed",
       "description": "Some stuff"
     },
     {
@@ -51,7 +89,7 @@
       "id": 6,
       "category": "Change Request",
       "priority": 1,
-      "status": "open",
+      "status": "closed",
       "description": "Remove remove user functionality"
     },
     {
@@ -66,7 +104,14 @@
       "category": "UI",
       "priority": 1,
       "description": "asdfasdfasdf",
-      "status": "open"
+      "status": "closed"
+    },
+    {
+      "id": 9,
+      "category": "Functional",
+      "priority": 1,
+      "description": "testt",
+      "status": "closed"
     }
   ]
 }
