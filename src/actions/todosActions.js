@@ -8,7 +8,7 @@ export function todosAction(type,successMessage,errorMessage,todos){
 
 export function callGetTodosAPI(dispatch){
     dispatch(todosAction('updateTodosMessages','','',null));
-    axios.get('http://localhost:4444/todos')
+    axios.get('http://localhost:4000/todos')
         .then(response=> {
             let allTodos = response.data;
             dispatch(todosAction('updateTodos','','',allTodos));
@@ -17,7 +17,7 @@ export function callGetTodosAPI(dispatch){
 
 export const callAddTodoAPI = (allTodos,newTodo) => (dispatch) => {
     dispatch(todosAction('updateTodosMessages','','',null));
-    axios.post('http://localhost:4444/todos',newTodo)
+    axios.post('http://localhost:4000/todos',newTodo)
         .then(response=>{
             let addedTodo = response.data;
             dispatch(todosAction('updateTodos','Todo Added','',[...allTodos,addedTodo]));
@@ -26,7 +26,7 @@ export const callAddTodoAPI = (allTodos,newTodo) => (dispatch) => {
 
 export const callUpdateTodoAPI = (allTodos,todoToUpdate) => (dispatch) => {
     dispatch(todosAction('updateTodosMessages','','',null));
-    axios.put('http://localhost:4444/todos/'+todoToUpdate.id,todoToUpdate)
+    axios.put('http://localhost:4000/todos/'+todoToUpdate.id,todoToUpdate)
         .then(response=>{
             let updatedTodo = response.data;
             let updatedTodosArr = allTodos.map(todo=> todo.id===updatedTodo.id ? updatedTodo : todo);
@@ -36,7 +36,7 @@ export const callUpdateTodoAPI = (allTodos,todoToUpdate) => (dispatch) => {
 
 export const callDeleteTodoAPI = (allTodos,todoToDelete) => dispatch => {
     dispatch(todosAction('updateTodosMessages','','',null));
-    axios.delete('http://localhost:4444/todos/'+todoToDelete.id)
+    axios.delete('http://localhost:4000/todos/'+todoToDelete.id)
         .then(response=>{
             let updatedTodosArr = allTodos.filter(todo=> todo.id != todoToDelete.id);
             dispatch(todosAction('updateTodos','Todo Deleted','',updatedTodosArr));
